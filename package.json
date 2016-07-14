@@ -1,0 +1,19 @@
+{
+  "name": "jui",
+  "version": "0.1.0",
+  "description": "Webpack+ES6+Vue+Vue-router",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-rookie/Jui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J-rookie/Jui/issues"
+  },
+  "homepage": "https://github.com/J-rookie/Jui#readme"
+}
