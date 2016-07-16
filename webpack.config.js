@@ -23,13 +23,13 @@ module.exports={
     },
     //产出文件配置
     output:{
-        path:path.join(__dirname, './dist'),
+        //path:path.join(__dirname, './dist'),
         filename: '[name].js',
-        publicPath: './dist/'
+        //publicPath: './dist/'
         // 公共文件生成的地址
     },
     //监听开关
-    watch:true,
+    //watch:true,
     //服务器配置
     devServer: {
         historyApiFallback: true,
@@ -49,9 +49,7 @@ module.exports={
             //在大小限制后可以加上&name=./[name].[ext]，会将我们的文件生成在设定的文件夹下。
             { test: /\.(png|jpg)$/, loader: "url-loader?limit=8192&name=./img/[name].[ext]" },
             //转换ES6语法
-            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
-            //html模板编译
-            { test: /\.(html|tpl)$/, loader: 'html-loader' },
+            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ }
         ],
     },
     // .vue的配置。需要单独出来配置，其实没什么必要--因为我删了也没保错，不过这里就留这把，因为官网文档里是可以有单独的配置的。

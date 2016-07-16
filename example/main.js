@@ -1,20 +1,25 @@
 'use strict'
 import Vue from 'vue';
-/*import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
 import App from './modules/app';
-import index from './modules/index';
+import IndexView from './modules/index';
 
 //使用路由
-Vue.use(Router);
+Vue.use(VueRouter);
 
 //初始化
-var router = new Router()
+var router = new VueRouter()
 
 //路由设置
 router.map({
-    '/index': {
-        component: index
+    '/layer': {
+    	name: 'index',  // 路径别名
+    	component: IndexView
+    },
+    '/shuffling': {
+    	name: 'index', 
+        component: IndexView
     },
 })
 
@@ -23,4 +28,4 @@ router.redirect({
   '*': '/'
 })
 //挂载
-router.start(App, '#app')*/
+router.start(App, '#app')

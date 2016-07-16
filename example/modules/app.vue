@@ -13,11 +13,15 @@
         }
     }
 </script>
-
-
 <template>
-	<div class="container js_container">
+<div>
+      <nav>
+        <a v-for="item in list" v-link="{ path: item.link }">{{item.title}}</a>
+      </nav>
       <!-- main view -->
       <router-view></router-view>
-  </div>
+</div>
 </template>
+<style>
+  
+</style>
