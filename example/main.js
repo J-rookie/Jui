@@ -2,8 +2,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import App from './modules/app';
-import IndexView from './modules/index';
+import App from './modules/app.vue';
+import IndexView from './modules/indexView.vue';
+import LayerView from './modules/layerView.vue';
+
 
 //使用路由
 Vue.use(VueRouter);
@@ -13,14 +15,15 @@ var router = new VueRouter()
 
 //路由设置
 router.map({
+	'/':{
+		component:IndexView
+	},
     '/layer': {
-    	name: 'index',  // 路径别名
-    	component: IndexView
+    	component: LayerView
     },
     '/shuffling': {
-    	name: 'index', 
         component: IndexView
-    },
+    }
 })
 
 //默认路径
