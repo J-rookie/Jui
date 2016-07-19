@@ -1,7 +1,7 @@
 
 <template>
     <nav class="list">
-        <a v-for="item in list">{{item.title}}</a>
+        <a v-for="item in list" @click="layerFn($index)">{{item.title}}</a>
       </nav>
     <Layer></Layer>
       
@@ -18,13 +18,10 @@
    
 </style>
 <script>
-    import Layer from '../../src/components/layer.vue';
+    import Vue from 'vue';
+    import layer from '../../src/components/layer/index.js';  
     //es6
     export default {
-         components: {
-          Layer
-          // Button
-          },
          data () {
             return {
                 list:[
@@ -34,6 +31,27 @@
                 {title:'confirm',link:'/shuffling'},
                 ]
             }
+        },
+        methods:{
+          layerFn(index){
+            console.log(index)
+            switch(index){
+              case 0:
+              break;
+              case 1:
+              layer.alert('这是一个美丽妖娆的弹窗,你觉得呢？',function(){
+              console.log("这是成功之后的回调函数")
+              });
+              break;
+              case 2:
+              layer.loading('这是一个美丽妖娆的弹窗,你觉得呢？',function(){
+              console.log("这是成功之后的回调函数")
+              });
+              break;
+              case 3:
+              break;
+            }
+          }
         }
     }
 </script>
