@@ -13,7 +13,8 @@
 			left:0;
 			width:100%;
 			height: 100%;
-			background-color:rgba(0,0,0,0.3);		
+			background-color:rgba(0,0,0,0.3);
+			pointer-events: auto;		
 		}
 		.jui-layer-content{
 			position: fixed;
@@ -62,6 +63,7 @@
 				display: inline-table;
 				border-radius: 4px;
 				padding:10px;
+				pointer-events: auto;
 			}
 		}
 		/* 提示层 */
@@ -76,6 +78,7 @@
 				width: 180px;
 				display: inline-table;
 				border-radius: 4px;
+				pointer-events: auto;
 				p{
 					border-bottom:1px solid #cccccc;
 					display: block;
@@ -86,7 +89,7 @@
 					text-align:center;
 					width:100%;
 					padding:5px 0;
-					color: #333;
+					color: #38a8d7;
 				}
 			}
 		}
@@ -97,7 +100,6 @@
 	      width:100%;
 	      top:0;
 	      left:0;
-
 		    @-webkit-keyframes ball-spin-fade-loader {
 			  50% {
 			    opacity: 0.3;
@@ -363,6 +365,7 @@
 				width: 180px;
 				display: inline-table;
 				border-radius: 4px;
+				pointer-events: auto;
 				p{
 					border-bottom:1px solid #ccc;
 					display: block;
@@ -370,12 +373,12 @@
 				}
 				nav{
 					color:#333;					
-					display: flex;
-					display: -webkit-box;
+					overflow:hidden;
 					a{
 						padding:5px 0;
 						display: block;
-						flex:1;
+						float:left;
+						width:50%;
 						text-align:center;
 						&:nth-of-type(2){
 							color:#38a8d7;

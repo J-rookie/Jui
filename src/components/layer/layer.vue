@@ -42,7 +42,7 @@
 			</div>
 			<div class="jui-layer-confirm"  v-if="type==3">
 				<div class="layer-confirm-con">
-					<p>{{message}}</p>
+					<p>{{{message}}}</p>
 					<nav>
 						<a @click="noFn">取消</a>
 						<a @click="yesFn">确定</a>
@@ -66,22 +66,32 @@
 	 			shadeClose:false,
 	 			no:'',
 	 			yes:'',
+	 			timer:0,
 	 		}
 	 	},
+	 	ready(){
+	 		let that = this;
+	 		if(that.timer){	
+	          setTimeout(function(){
+	            that.$remove();
+	          },that.timer)
+	 		}
+        },
 	 	methods: {
 	 		closeFn(){
 	 			this.$remove();
 	 		},
 	 		shadeCloseFn(){
-	 			if(this.shadeClose) return this.$remove();
+	 			this.shadeClose ? this.$remove() : '';
 	 		},
 	 		noFn(){
-	 			if(typeof this.no=="function") return this.yes();
+	 			typeof this.yes=="function" ? this.no():'';
 	 			this.$remove();
 	 		},
 	 		yesFn(){
-	 			if(typeof this.yes=="function") return this.yes();
-	 			this.$remove();
+	 			typeof this.yes=="function" ? this.yes():'';
+	 			return this.$remove();
+	 			
 	 		}
 	 	}
 	 }
