@@ -12,3 +12,7 @@
 		</nav>
 	</div>
 </template>
+<script type="text/javascript">
+	import './swipe.scss';
+	
+</script>
