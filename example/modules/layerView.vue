@@ -2,9 +2,7 @@
 <template>
     <nav class="list">
         <a v-for="item in list" @click="layerFn($index)">{{item.title}}</a>
-      </nav>
-    <Layer></Layer>
-      
+      </nav>      
 </template>
 <style lang="sass">
  .list{
@@ -14,8 +12,7 @@
     display: block;
     line-height:30px;
   }
-}
-   
+}   
 </style>
 <script>
     import Vue from 'vue';

@@ -15,7 +15,9 @@ var defaults = {
 
 var layerConstructor = Vue.extend(LayerVue);
 
-var initData;
+var initData,layerNum;
+
+	layerNum = 0;
 
 var layerInit = function(){
 	return new layerConstructor({el: document.createElement('div')});
@@ -40,8 +42,7 @@ var layer = function(options){
 		initData.message = options;
 		for(var prop in initData){
 			InitLayer[prop] = initData[prop]
-		}
-		InitLayer.$appendTo(document.body);
+		}		
 	}else if(typeof options === "object" && Object.prototype.toString.call(options).toLowerCase() == "[object object]" && !options.length){
 		initData = dataCopy(defaults);
 		for(var prop in options){
@@ -50,11 +51,17 @@ var layer = function(options){
 		for(var prop in initData){
 			InitLayer[prop] = initData[prop]
 		}
-		InitLayer.$appendTo(document.body);
 	}
-	
+	InitLayer.$appendTo(document.body);
+	layer.assembly[layerNum] = InitLayer;
+	layerNum++;
+	layer.assembly.length = layerNum;
+	return InitLayer;
 };
 
+layer.assembly = {};
+layer.assembly.length = 0;
+ 
 layer.alert = function(msg,yesFn){
 	let data = {
 		type:1,
@@ -69,6 +76,7 @@ layer.loading = function(iconType,time){
 		type:2,
 		icon:iconType,
 		timer: time || 0,
+		shadeClose: false,
 	}
 	return layer(data);
 }
@@ -82,6 +90,12 @@ layer.confirm = function(msg,yesFn,noFn){
 	}
 	return layer(data);
 
+}
+
+layer.closeAll = function(){
+	for(var i=0;i<layer.assembly.length;i++){
+		layer.assembly[i].$remove();
+	}
 }
 
 export default layer;
