@@ -1,0 +1,39 @@
+.swipe-container{
+	width:100%;
+	overflow:hidden;
+	position: relative;
+	.swipe-wrapper{
+	display: flex;
+	transform: translate3d(0px, 0px, 0px);
+	&.duration{
+		transition-duration: 200ms;
+	}
+		a{
+			flex:1;
+			display: block;
+			img{
+				display: block;
+				width:100%;
+			}
+		}
+	}
+	.swipe-pagination{
+		position: absolute;
+		width:100%;
+		text-align: center;
+		z-index:90;
+		left:0;
+		bottom:5%;
+		a{
+			display: inline-block;
+			width:10px;
+			height:10px;
+			border-radius: 10px;
+			margin:0 5px;
+			background-color: #fff;
+			&.active{
+				background-color:#38a8d7;
+			}
+		}
+	}
+}

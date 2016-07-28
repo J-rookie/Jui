@@ -94,7 +94,7 @@ layer.confirm = function(msg,yesFn,noFn){
 
 layer.closeAll = function(){
 	for(var i=0;i<layer.assembly.length;i++){
-		layer.assembly[i].$remove();
+		layer.assembly[i].$destroy(true);
 	}
 }
 

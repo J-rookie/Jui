@@ -22,10 +22,10 @@
          data () {
             return {
                 list:[
-                {title:'message',link:'/layer'},
-                {title:'alert',link:'/shuffling'},
-                {title:'loading',link:'/shuffling'},
-                {title:'confirm',link:'/shuffling'},
+                {title:'message'},
+                {title:'alert'},
+                {title:'loading'},
+                {title:'confirm'},
                 ]
             }
         },

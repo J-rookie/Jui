@@ -5,7 +5,8 @@ import VueRouter from 'vue-router';
 import App from './modules/app.vue';
 import IndexView from './modules/indexView.vue';
 import LayerView from './modules/layerView.vue';
-
+import swipeView from './modules/swipeView.vue';
+import toastView from './modules/toastView.vue';
 
 //使用路由
 Vue.use(VueRouter);
@@ -21,8 +22,11 @@ router.map({
     '/layer': {
     	component: LayerView
     },
-    '/shuffling': {
-        component: IndexView
+    '/swipe': {
+        component: swipeView
+    },
+    '/toast': {
+        component: toastView
     }
 })
 

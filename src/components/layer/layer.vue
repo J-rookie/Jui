@@ -73,24 +73,24 @@
 	 		let that = this;
 	 		if(that.timer){	
 	          setTimeout(function(){
-	            that.$remove();
+	            that.$destroy(true);
 	          },that.timer)
 	 		}
         },
 	 	methods: {
 	 		closeFn(){
-	 			this.$remove();
+	 			this.$destroy(true);
 	 		},
 	 		shadeCloseFn(){
-	 			this.shadeClose ? this.$remove() : '';
+	 			this.shadeClose ? this.$destroy(true) : '';
 	 		},
 	 		noFn(){
 	 			typeof this.yes=="function" ? this.no():'';
-	 			this.$remove();
+	 			this.$destroy(true);
 	 		},
 	 		yesFn(){
 	 			typeof this.yes=="function" ? this.yes():'';
-	 			return this.$remove();
+	 			return this.$destroy(true);
 	 			
 	 		}
 	 	}

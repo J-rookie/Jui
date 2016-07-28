@@ -4,9 +4,7 @@
         <a v-for="item in list" v-link="{ path: item.link }">{{item.title}}</a>
       </nav>
       <!-- main view -->
-      <router-view></router-view>
-
-      
+      <router-view></router-view>     
 </template>
 <style lang="sass">
 
@@ -19,7 +17,8 @@
             return {
                 list:[
                 {title:'弹层',link:'/layer'},
-                {title:'轮播',link:'/shuffling'},
+                {title:'轮播',link:'/swipe'},
+                {title:'消息提示',link:'/toast'},
                 ]
             }
         }
