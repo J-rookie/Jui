@@ -4,7 +4,7 @@
 		<span class="text" v-if="type==0">{{message}}</span>
 		<div class="info" v-if="type!=0">
 			<img class="icon" v-if="imgSrc" :src="imgSrc">
-			<span class="text" v-if="type!=2">{{message}}</span>
+			<span class="info-text" v-if="type!=2">{{message}}</span>
 		</div>		
 	</div>
 </template>

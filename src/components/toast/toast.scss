@@ -23,12 +23,20 @@
 		line-height:2em;
 		display: block;
 		font-size:14px;
+		max-width:150px;
 	}
 	.info{
 		width:80px;
 		img{
 			width:100%;
 			display: block;
+		}
+		.info-text{
+			color:#fff;
+			text-align:center;
+			line-height:2em;
+			display: block;
+			font-size:14px;
 		}
 	}
 }
