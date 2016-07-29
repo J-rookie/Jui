@@ -1,6 +1,12 @@
 
 <template>
-
+	<div class="jui-toast" :class="position" transition="expand">
+		<span class="text" v-if="type==0">{{message}}</span>
+		<div class="info" v-if="type!=0">
+			<img class="icon" v-if="imgSrc" :src="imgSrc">
+			<span class="text" v-if="type!=2">{{message}}</span>
+		</div>		
+	</div>
 </template>
 
 <script type="text/javascript">
@@ -8,40 +14,19 @@
 	 export default {
 	 	data(){
 	 		return {
-	 			message:"",
+	 			message:"哈哈哈",
 	 			type:0,
-	 			close:true,
-	 			icon:0,
-	 			shade:true,
-	 			shadeClose:false,
-	 			no:'',
-	 			yes:'',
-	 			timer:0,
+	 			position:'center',
+	 			time:0,
+	 			imgSrc:false,
 	 		}
 	 	},
 	 	ready(){
-	 		let that = this;
-	 		if(that.timer){	
-	          setTimeout(function(){
-	            that.$destroy(true);
-	          },that.timer)
-	 		}
-        },
-	 	methods: {
-	 		closeFn(){
-	 			this.$destroy(true);
-	 		},
-	 		shadeCloseFn(){
-	 			this.shadeClose ? this.$destroy(true) : '';
-	 		},
-	 		noFn(){
-	 			typeof this.yes=="function" ? this.no():'';
-	 			this.$destroy(true);
-	 		},
-	 		yesFn(){
-	 			typeof this.yes=="function" ? this.yes():'';
-	 			return this.$destroy(true);
-	 			
+	 		var self = this;
+	 		if(self.time!=0){
+	 			setTimeout(function(){
+ 					self.$destroy(true)
+ 				},self.time)
 	 		}
 	 	}
 	 }

@@ -19,6 +19,7 @@
 </style>
 <script>
     import Vue from 'vue'; 
+    import toast from '../../src/components/toast/index.js';  
     //es6
     export default {
          data () {
@@ -37,6 +38,22 @@
             Prompt(index){
                 switch(index){
                     case 0:
+                    toast("哈哈哈");
+                    break;
+                    case 1:
+                    toast({
+                        message:"回答正确",
+                        type:1,
+                        imgSrc:'example/temp/images/true.png',
+                    });
+                    break;
+                    case 2:
+                    toast.closeAll();
+                    toast({
+                        type:2,
+                        imgSrc:'example/temp/images/loading.gif',
+                        time:0,
+                    });
                     break;
                     default:
                     break;
@@ -46,6 +63,28 @@
             PromptP(index){
                 switch(index){
                     case 0:
+                    toast({
+                        message:"信息文本",
+                        type:0,
+                        time:1000,
+                        position:'top',
+                    });
+                    break;
+                    case 1:
+                    toast({
+                        message:"信息文本",
+                        type:0,
+                        time:1000,
+                        position:'center',
+                    });
+                    break;
+                    case 2:
+                    toast({
+                        message:"信息文本",
+                        type:0,
+                        time:1000,
+                        position:'bottom',
+                    });
                     break;
                     default:
                     break;

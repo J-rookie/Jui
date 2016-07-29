@@ -1,5 +1,5 @@
 <template>
-	<div class="swipe-container">
+	<div class="jui-swipe-container">
 		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:swipeitem.length * 100 + '%',transform: 'translate3d('+swipeWidth+'px, 0px, 0px)'}" v-on:touchstart="_start($event)">
 			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link" ">
 			<img :src="item.image"></a>

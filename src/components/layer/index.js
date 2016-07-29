@@ -11,6 +11,7 @@ var defaults = {
 	no:'',
 	yes:'',
 	timer:0,
+	show:true,
 }
 
 var layerConstructor = Vue.extend(LayerVue);

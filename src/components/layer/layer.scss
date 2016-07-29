@@ -388,4 +388,15 @@
 				}
 			}
 		}
-	}
+}
+/* 必需 */
+.fade-transition {
+  transition: all .5s ease;
+  overflow: hidden;
+}
+
+/* .expand-enter 定义进入的开始状态 */
+/* .expand-leave 定义离开的结束状态 */
+.fade-enter, .fade-leave{
+  opacity: 0;
+}
