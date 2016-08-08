@@ -9,12 +9,6 @@
 		</nav>
 	</div>
 </template>
-<style lang="sass">
-	.swipe-container{
-		width:100%;
-		overflow:hidden;
-	}
-</style>
 <script type="text/javascript">
 	import './swipe.scss';
 	import _event from '../../lib/event';
@@ -43,7 +37,6 @@
         },
         watch: {
         'shuffling': function (val) {
-            console.log(val)
                 if(val){
                     this.swipetimer = setInterval(this._animate,2000)
                 }else{
