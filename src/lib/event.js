@@ -7,6 +7,7 @@ let JuiEvent={};
     JuiEvent._unbind = function (obj, type, fn) {
         obj.removeEventListener(type, fn, false);
     };
+//数据转换为字符串
     JuiEvent.toString = function(value){
     	return JSON.stringify(value)
     }
