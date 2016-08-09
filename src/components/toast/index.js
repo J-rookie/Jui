@@ -6,7 +6,7 @@ var defaults = {
 	type:0,
 	position:'center',
 	imgSrc:false,
-	time:0,
+	time:2000,
 }
 
 var toastConstructor = Vue.extend(ToastVue);

@@ -52,7 +52,7 @@
                     toast({
                         type:2,
                         imgSrc:'example/temp/images/loading.gif',
-                        time:0,
+                        time:1000,
                     });
                     break;
                     default:

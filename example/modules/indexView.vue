@@ -19,6 +19,7 @@
                 {title:'弹层',link:'/layer'},
                 {title:'轮播',link:'/swipe'},
                 {title:'消息提示',link:'/toast'},
+                {title:'复选框',link:'/select'},
                 ]
             }
         }

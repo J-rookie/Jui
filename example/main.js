@@ -7,6 +7,7 @@ import IndexView from './modules/indexView.vue';
 import LayerView from './modules/layerView.vue';
 import swipeView from './modules/swipeView.vue';
 import toastView from './modules/toastView.vue';
+import selectView from './modules/selectView.vue';
 
 //使用路由
 Vue.use(VueRouter);
@@ -27,6 +28,9 @@ router.map({
     },
     '/toast': {
         component: toastView
+    },
+    '/select': {
+        component: selectView
     }
 })
 
