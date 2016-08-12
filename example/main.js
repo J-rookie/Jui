@@ -8,6 +8,7 @@ import LayerView from './modules/layerView.vue';
 import swipeView from './modules/swipeView.vue';
 import toastView from './modules/toastView.vue';
 import selectView from './modules/selectView.vue';
+import pickerView from './modules/pickerView.vue';
 
 //使用路由
 Vue.use(VueRouter);
@@ -31,6 +32,9 @@ router.map({
     },
     '/select': {
         component: selectView
+    },
+    '/picker': {
+        component: pickerView
     }
 })
 

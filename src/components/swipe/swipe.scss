@@ -3,13 +3,17 @@
 	overflow:hidden;
 	position: relative;
 	.swipe-wrapper{
+	display: -webkit-box;
+	display: -webkit-flex;
 	display: flex;
 	transform: translate3d(0px, 0px, 0px);
+	-webkit-transform: translate3d(0px, 0px, 0px);
 	&.duration{
 		transition-duration: 200ms;
 	}
 		a{
 			flex:1;
+			-webkit-flex:1;
 			display: block;
 			img{
 				display: block;

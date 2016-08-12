@@ -1,6 +1,6 @@
 <template>
 	<div class="jui-swipe-container">
-		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:swipeitem.length * 100 + '%',transform: 'translate3d('+swipeWidth+'px, 0px, 0px)'}" v-on:touchstart="_start($event)">
+		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart="_start($event)">
 			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link" ">
 			<img :src="item.image"></a>
 		</nav>
@@ -26,6 +26,8 @@
                 swipeWidth:0,
             	swipetimer:'',
                 animation:true,
+                sWipeStyleW:this.swipeitem.length * 100 + '%',
+                sWipeTransform:'translate3d(0px, 0px, 0px)',
             	eventKey:{
             		startX:0,
             		moveX:0,
@@ -36,12 +38,15 @@
             }
         },
         watch: {
-        'shuffling': function (val) {
+        shuffling(val) {
                 if(val){
                     this.swipetimer = setInterval(this._animate,2000)
                 }else{
                     clearInterval(this.swipetimer)
                 }
+            },
+        swipeWidth(){
+            this.sWipeTransform = 'translate3d('+this.swipeWidth+'px, 0px, 0px)'
             }
         },
         methods:{

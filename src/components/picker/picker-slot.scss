@@ -1,0 +1,20 @@
+.Jui-picker-slot{
+	flex:1;
+	-webkit-flex:1;
+	pointer-events: auto;
+	.Jui-picker-options{
+		&.duration{
+		transition-duration: 200ms;
+		}
+		a{
+		display: block;
+		text-align:center;
+		line-height:40px;
+		height:40px;
+		color:#999;
+		&.selected{
+			color:#333;
+			}
+		}
+	}
+}
