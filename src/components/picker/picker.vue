@@ -20,10 +20,10 @@
 	import "./picker.scss";
 
 	export default{
-		props:['data','default','response'],
+		props:['data','default','response','success'],
 		data(){
 			return {
-				pickerShow:true,
+				pickerShow:false,
 				value:'',
 				results:{
 					values:[],
@@ -36,14 +36,19 @@
 		},
 		ready(){
 			this.value = this.default;
+			if(this.response != 'undefined'){
+				this.response = this.results;
+			}
 		},
 		methods:{
 			yesFn(){
 				this.getvalues()
-				console.log(JSON.stringify(this.results));
-				/*if(){
-
-				}*/
+				if(!this.success){
+					this.value = this.results.value;
+				}else{
+					this.success(this.results);
+				}
+				this.pickerShow = !this.pickerShow;
 			},
 			getvalues(){
 				this.results.values= [];

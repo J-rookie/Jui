@@ -1,6 +1,7 @@
 
 <template>
-      <picker :data="datetime.slot" :default="datetime.default" :response.sync='datetime.response'></picker>   
+      <picker :data="datetime.slot" :default="datetime.default" :response.sync="datetime.response" ></picker> 
+      <a @click="aaaa">12312</a>  
 </template>
 <style lang="sass">
 .menu{
@@ -26,20 +27,23 @@
                   slot:{
                     '0':{
                       values:[1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001],
-                      value:'1990'
+                      value:1990
                     },
                     '1':{
                       values:[1,2,3,4,5,6],
-                      value:'1'
+                      value:2
                     },
                     '2':{
                       values:[1,2,3,4,5,6],
-                      value:'1'
+                      value:5
                     },
                     length:3,
                   },
                   default:"日期选择",
                   response:'',
+                  success:function(response){
+                    alert(JSON.stringify(response));
+                  }
                 }
             }
         },
@@ -51,7 +55,7 @@
         },
         methods:{
           aaaa(){
-            console.log()
+            console.log(JSON.stringify(this.datetime.response))
           },
         }
     }

@@ -14,7 +14,7 @@
 		props:['data'],
 		data(){
 			return {
-				selected : 2,
+				selected : 0,
                 sTransformY:'translate3d(0px, 0px, 0px)',
                 TransformY:0,
                 animation:true,
@@ -29,16 +29,17 @@
 		},
 		watch:{
 			TransformY(){
-				this.sTransformY = 'translate3d(0px, '+this.TransformY+'px, 0px)'
+				this.sTransformY = 'translate3d(0px, '+this.TransformY+'px, 0px)';
 			}
 		},
         ready(){
-
+            this.selected = this.data.values.indexOf(this.data.value);
+            this.TransformY = -this.selected*40+80;
         },
 		methods:{
 			_start(e){
                 this.animation = false;
-        		var self = this.eventKey;
+        		let self = this.eventKey;
 				self.startY = e.touches[0].pageY;
 				self.startT = new Date().getTime();
                 self.top = this.TransformY;
@@ -46,29 +47,31 @@
                 _event._bind(e.target,'touchend',this._end);
         	},
         	_move(e){
-        		var self = this.eventKey;
+        		let self = this.eventKey;
 				self.moveY = e.touches[0].pageY;
                 this.TransformY = self.top + self.moveY - self.startY;		
         	},
             _end(e){
                 this.animation = true;
-                var self = this.eventKey;
+                let self = this.eventKey;
+                let limitTop = 80;
+                let limitBottom = -(this.data.values.length-1)*40+80;
                 self.endT = new Date().getTime();
-                var speed = self.endT - self.startT;
+                let speed = self.endT - self.startT;
                     if(this.TransformY>80){
                     this.TransformY = 80;
-                    }else if(this.TransformY <-(this.data.values.length-1)*40+80){
+                    }else if(this.TransformY < limitBottom){
                         this.TransformY = -(this.data.values.length-1)*40+80;
                     }else{
                         if(speed<300){
                             if(self.moveY-self.startY>0){                 
                                 this.TransformY = this.TransformY-this.TransformY%40;             
                             }else{
-                                this.TransformY = this.TransformY-this.TransformY%40-40;
+                                this.TransformY-this.TransformY%40-40 < limitBottom?this.TransformY = limitBottom:this.TransformY = this.TransformY-this.TransformY%40-40;
                             }
                         }else{                     
                             if(Math.abs(this.TransformY%40)<=40/2){                          
-                                this.TransformY = this.TransformY-this.TransformY%40;                   
+                                this.TransformY = this.TransformY-this.TransformY%40;                  
                             }else{  
                                 this.TransformY-this.TransformY%40 >= 0 ?this.TransformY = this.TransformY-this.TransformY%40+40:this.TransformY = this.TransformY-this.TransformY%40-40;
                             }
