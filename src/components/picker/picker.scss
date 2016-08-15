@@ -58,10 +58,10 @@
 		height:200px;
 		position: relative;
 		overflow: hidden;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
 		.Jui-picker-highlight{
-			display: -webkit-box;
-			display: -webkit-flex;
-			display: flex;
 			position: absolute;
 			top:80px;
 			left:0;

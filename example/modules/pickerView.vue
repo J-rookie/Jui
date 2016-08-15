@@ -1,6 +1,6 @@
 
 <template>
-      <picker :data="city"></picker>    
+      <picker :data="datetime.slot" :default="datetime.default" :response.sync='datetime.response'></picker>   
 </template>
 <style lang="sass">
 .menu{
@@ -22,14 +22,37 @@
          //data:function(){}，下面是es6写法
          data () {
             return {
-                city:{
-                  name:"日期选择",
-                  years:[1990,1991,1992,1993,1994,1995]
+                datetime:{
+                  slot:{
+                    '0':{
+                      values:[1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001],
+                      value:'1990'
+                    },
+                    '1':{
+                      values:[1,2,3,4,5,6],
+                      value:'1'
+                    },
+                    '2':{
+                      values:[1,2,3,4,5,6],
+                      value:'1'
+                    },
+                    length:3,
+                  },
+                  default:"日期选择",
+                  response:'',
                 }
             }
         },
         components: {
             picker:picker,
         },
+        ready(){
+          
+        },
+        methods:{
+          aaaa(){
+            console.log()
+          },
+        }
     }
 </script>
