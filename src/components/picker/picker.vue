@@ -24,7 +24,7 @@
 		data(){
 			return {
 				pickerShow:false,
-				value:'',
+				valueTotal:false,
 				results:{
 					values:[],
 					value:'',
@@ -34,17 +34,21 @@
 		components:{
 			pickerSlot:slot
 		},
+		computed:{
+			value(){
+				return this.valueTotal ? this.results.value : this.default;
+			}
+		},
 		ready(){
-			this.value = this.default;
-			if(this.response != 'undefined'){
+			if(this.response != undefined){
 				this.response = this.results;
 			}
 		},
 		methods:{
 			yesFn(){
 				this.getvalues()
+				this.valueTotal = true;
 				if(!this.success){
-					this.value = this.results.value;
 				}else{
 					this.success(this.results);
 				}
