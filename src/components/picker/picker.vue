@@ -1,5 +1,5 @@
 <template>
-	<div class="Jui-picker-value" @click="pickerShow = !pickerShow">{{value}}</div>
+	<div v-bind:class="styleClass?styleClass:'Jui-picker-value'" @click="pickerShow = !pickerShow">{{value}}</div>
 	<div class="Jui-picker" v-if="pickerShow">
 		<div class="Jui-picker-mask"></div>
 		<div class="Jui-picker-content">
@@ -20,7 +20,7 @@
 	import "./picker.scss";
 
 	export default{
-		props:['data','default','response','success'],
+		props:['data','default','response','success','styleClass'],
 		data(){
 			return {
 				pickerShow:false,
