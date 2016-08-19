@@ -1,7 +1,7 @@
 
 <template>
       <picker-date :datevalues.sync="datevalues"></picker-date>
-      <picker-city></picker-city> 
+      <picker-city style-class="blueSelect" :cityvalues.sync="cityvalues"></picker-city> 
       <picker :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></picker> 
       <picker style-class="blueSelect" :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></picker> 
 </template>
@@ -32,7 +32,14 @@
                     values:[],
                     value:'',
                 },
-                default:'选择日期吧',
+                default:'选择日期',
+              },
+              cityvalues:{
+                data:{
+                    values:[],
+                    value:'',
+                },
+                default:'城市选择',
               },
               selectDate:{
                 slot:{

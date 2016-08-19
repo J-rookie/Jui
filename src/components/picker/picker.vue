@@ -1,8 +1,8 @@
 <template>
 	<div v-bind:class="styleClass?styleClass:'Jui-picker-value'" @click="pickerShow = !pickerShow">{{value}}</div>
-	<div class="Jui-picker" v-if="pickerShow">
+	<div class="Jui-picker" v-if="pickerShow" transition="expand">
 		<div class="Jui-picker-mask"></div>
-		<div class="Jui-picker-content">
+		<div class="Jui-picker-content" v-if="pickerShow" transition="slide">
 			<nav class="Jui-picker-menu">
 				<a @click="pickerShow = !pickerShow">取消</a>
 				<a class="active" @click="yesFn">确定</a>

@@ -1,12 +1,12 @@
 <template>
-	<picker :data.sync="datetime.slot" :default="datetime.default" :response.sync="datetime.response"></picker>
+	<picker :data.sync="datetime.slot" :default="datetime.default" :response.sync="datetime.response" :style-class="styleClass"></picker>
 </template>
 
 <script type="text/javascript">
   	import picker from './picker.vue';
 
 	export default {
-		props:['datevalues'],
+		props:['datevalues','styleClass'],
          data () {
             return {
                 datetime:{

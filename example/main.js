@@ -9,6 +9,7 @@ import swipeView from './modules/swipeView.vue';
 import toastView from './modules/toastView.vue';
 import selectView from './modules/selectView.vue';
 import pickerView from './modules/pickerView.vue';
+import searchView from './modules/searchView.vue';
 
 //使用路由
 Vue.use(VueRouter);
@@ -35,6 +36,9 @@ router.map({
     },
     '/picker': {
         component: pickerView
+    },
+    '/search':{
+        component: searchView
     }
 })
 

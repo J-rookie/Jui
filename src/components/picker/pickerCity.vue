@@ -1,12 +1,12 @@
 <template>
-	<picker :data.sync="citytable.slot" :default="citytable.default" :response.sync="citytable.response" :success="citytable.success"></picker>
+	<picker :data.sync="citytable.slot" :default="citytable.default" :response.sync="citytable.response" :success="citytable.success" :style-class="styleClass"></picker>
 </template>
 
 <script type="text/javascript">
   	import picker from './picker.vue';
   	import Chinesecity from './chinesecity.js';
 	export default {
-		props:['datevalues'],
+		props:['cityvalues','styleClass'],
          data () {
             return {
                 citytable:{
@@ -39,7 +39,15 @@
         ready(){
           let self = this;
           let city = self.citytable.slot['0']; 
-          let area = self.citytable.slot['1'];      
+          let area = self.citytable.slot['1']; 
+          if(this.cityvalues!= undefined){
+            if(this.cityvalues.data != undefined){
+            this.cityvalues.data = this.citytable.response;
+            }      
+            if(this.cityvalues.default != undefined){
+            this.citytable.default = this.cityvalues.default;
+           }
+          }     
           city.reset = function(data){
             let ocity = self.citytable.slot['1'];
             ocity.values = Chinesecity.city[city.value];

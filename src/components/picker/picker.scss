@@ -93,3 +93,25 @@
 		}
 	}
 }
+/* 必需 */
+.expand-transition {
+  transition: all .5s ease;
+  overflow: hidden;
+}
+
+/* .expand-enter 定义进入的开始状态 */
+/* .expand-leave 定义离开的结束状态 */
+.expand-enter, .expand-leave {
+  opacity: 0;
+}
+
+.slide-transition {
+  transition: all .5s ease;
+  transform:translateY(0px);
+  -webkit-transform:translateY(0px);
+}
+
+.slide-enter, .slide-leave {
+	transform:translateY(300px);
+	 -webkit-transform:translateY(300px);
+}

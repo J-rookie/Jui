@@ -30,6 +30,7 @@
                 {title:'消息提示',link:'/toast'},
                 {title:'复选框',link:'/select'},
                 {title:'选择器',link:'/picker'},
+                {title:'搜索',link:'/search'},
                 ]
             }
         }
