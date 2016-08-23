@@ -17,7 +17,7 @@
 </style>
 <script>
     import Vue from 'vue'; 
-    import swipe from '../../src/components/swipe/swipe.vue';
+    import swipe from '../../src/JsComponents/swipe/swipe.vue';
     //es6
     export default {
          data () {

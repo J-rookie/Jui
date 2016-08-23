@@ -31,6 +31,9 @@
                 {title:'复选框',link:'/select'},
                 {title:'选择器',link:'/picker'},
                 {title:'搜索',link:'/search'},
+                {title:'头部',link:'/header'},
+                {title:'部件',link:'/cell'},
+                {title:'选择样式',link:'switch'}
                 ]
             }
         }

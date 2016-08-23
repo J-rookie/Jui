@@ -16,7 +16,7 @@
 </style>
 <script>
     import Vue from 'vue';
-    import layer from '../../src/components/layer/index.js';  
+    import layer from '../../src/JsComponents/layer/index.js';  
     //es6
     export default {
          data () {

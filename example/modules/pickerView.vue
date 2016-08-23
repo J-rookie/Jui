@@ -19,9 +19,9 @@
 </style>
 <script>
   import Vue from 'vue'; 
-  import pickerDate from '../../src/components/picker/pickerDate.vue';
-  import pickerCity from '../../src/components/picker/pickerCity.vue';
-  import picker from '../../src/components/picker/picker.vue';
+  import pickerDate from '../../src/JsComponents/picker/pickerDate.vue';
+  import pickerCity from '../../src/JsComponents/picker/pickerCity.vue';
+  import picker from '../../src/JsComponents/picker/picker.vue';
     //es6
     export default {
          //data:function(){}，下面是es6写法

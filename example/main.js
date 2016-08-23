@@ -10,6 +10,9 @@ import toastView from './modules/toastView.vue';
 import selectView from './modules/selectView.vue';
 import pickerView from './modules/pickerView.vue';
 import searchView from './modules/searchView.vue';
+import headerView from './modules/headerView.vue';
+import cellView from './modules/cellView.vue';
+import switchView from './modules/switchView.vue';
 
 //使用路由
 Vue.use(VueRouter);
@@ -37,8 +40,17 @@ router.map({
     '/picker': {
         component: pickerView
     },
-    '/search':{
+    '/search': {
         component: searchView
+    },
+    '/header': {
+        component:headerView
+    },
+    '/cell': {
+        component:cellView
+    },
+    '/switch': {
+        component:switchView
     }
 })
 

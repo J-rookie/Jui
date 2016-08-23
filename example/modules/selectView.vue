@@ -19,7 +19,7 @@
 </style>
 <script>
     import Vue from 'vue'; 
-    import choice from '../../src/components/select/select.vue';  
+    import choice from '../../src/JsComponents/select/select.vue';  
     //es6
     export default {
          data () {

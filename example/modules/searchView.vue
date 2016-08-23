@@ -38,7 +38,7 @@
 </style>
 <script>
     import Vue from 'vue'; 
-    import search from '../../src/components/search/index';
+    import search from '../../src/JsComponents/search/index';
     //es6
     export default {
          data () {

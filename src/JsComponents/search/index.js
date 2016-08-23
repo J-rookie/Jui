@@ -4,7 +4,6 @@ import searchVue from './search.vue';
 var defaults={
 	request: function(val,self){
 		self.$destroy(true);
-		window.location.href=window.location.href+"?keywords="+val;
 	},
 	scolor:'#419EFE',
 	historical:[],

@@ -19,7 +19,7 @@
 </style>
 <script>
     import Vue from 'vue'; 
-    import toast from '../../src/components/toast/index.js';  
+    import toast from '../../src/JsComponents/toast/index.js';  
     //es6
     export default {
          data () {
