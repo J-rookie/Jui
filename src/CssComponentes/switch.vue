@@ -1,11 +1,17 @@
 <template>
 	<div class="Jui-switch">
-		<input type="checkbox" class="Jui-switch-core">
+		<input type="checkbox" class="Jui-switch-core" v-model="value">
+        <label class="mint-switch-label">
+            <slot></slot>
+        </label>
 	</div>
 </template>
 <style lang="sass">
+.Jui-switch{
+    display: inline-block;
+}
 .Jui-switch-core{
-	width: 60px;
+	width: 54px;
     height: 30px;
     position: relative;
     z-index: 2;
@@ -13,19 +19,20 @@
     background: 0 0;
     -webkit-appearance: none;
     outline: 0;
+    border: 1px solid #dfdfdf;
+    border-radius: 16px;
 	&:checked:before{
-    -webkit-box-shadow: #62cc56 0 0 0 16px inset;
-    box-shadow: #62cc56 0 0 0 16px inset;
-    background-color: #62cc56;
+    -webkit-box-shadow: #419EFE 0 0 0 16px inset;
+    box-shadow: #419EFE 0 0 0 16px inset;
+    background-color: #419EFE;
     transition: border .4s,box-shadow .4s,background-color 1.2s;
     -webkit-transition: border .4s,-webkit-box-shadow .4s,background-color 1.2s;
-    background-color: #62cc56;
+    background-color: #419EFE;
 	}
 	&:before{
 	content: '';
-   	width: 60px;
+   	width: 54px;
     height: 30px;
-    border: 1px solid #dfdfdf;
     background-color: #a0a0a0;
     border-radius:30px;
     cursor: pointer;
@@ -43,15 +50,15 @@
     background-clip: content-box;
 	}
 	&:checked:after{
-		left:32px;
+		left:24px;
 	}
 	&:after{
 	content: '';
     width: 30px;
     height: 30px;
     position: absolute;
-    top: 1px;
-    left: 0px;
+    top: 0;
+    left: 0;
     border-radius: 100%;
     background-color: #fff;
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.4);
@@ -63,11 +70,9 @@
 </style>
 <script>
 	export default {
-		name:'juicell',
+		name: 'jui-switch',
 		props: {
-			link: Boolean,
-		    title: String,
-		    value: String,
+		    value: Boolean,
 		  }
 	}	
 </script>

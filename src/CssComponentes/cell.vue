@@ -20,6 +20,7 @@
 	display: flex;
 	padding: 16px 10px;
 	text-decoration: none;
+	align-items: center;
 	.Jui-cell-title{
 		flex:1;
 		text-align: left;
