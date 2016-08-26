@@ -1,12 +1,12 @@
 <template>
 	<a class="Jui-cell">
-		<div class="Jui-cell-title">
+		<label class="Jui-cell-title">
 			<slot name="icon"></slot>
 			<slot name="title">
 				<span v-text="title"></span>
 			</slot>
-		</div>
-		<div class="Jui-cell-value">
+		</label>
+		<div class="Jui-cell-value" v-if="value">
 			<slot>
 				<span v-text="value"></span>
 			</slot>

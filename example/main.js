@@ -13,6 +13,8 @@ import searchView from './modules/searchView.vue';
 import headerView from './modules/headerView.vue';
 import cellView from './modules/cellView.vue';
 import switchView from './modules/switchView.vue';
+import radioView from './modules/radioView.vue';
+import checklistView from './modules/checklistView.vue';
 
 //使用路由
 Vue.use(VueRouter);
@@ -51,6 +53,12 @@ router.map({
     },
     '/switch': {
         component:switchView
+    },
+    '/radio': {
+        component:radioView
+    },
+    '/checklist': {
+        component:checklistView
     }
 })
 

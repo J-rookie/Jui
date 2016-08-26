@@ -33,7 +33,9 @@
                 {title:'搜索',link:'/search'},
                 {title:'头部',link:'/header'},
                 {title:'部件',link:'/cell'},
-                {title:'选择样式',link:'switch'}
+                {title:'选择样式',link:'switch'},
+                {title:'单选',link:'radio'},
+                {title:'复选框',link:'checklist'}
                 ]
             }
         }

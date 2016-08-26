@@ -20,7 +20,8 @@ module.exports={
     ],
     //入口文件配置
     entry: {
-        Jui:'./example/main.js',
+        './dist/Jui':'./src/build.js',
+        './app':'./example/main.js',
     },
     //产出文件配置
     output:{
