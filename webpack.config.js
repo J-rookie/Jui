@@ -16,11 +16,10 @@ var Webpack = require("webpack");
 module.exports={
     //插件配置
     plugins: [//注意这是一个数组..
-        new Webpack.BannerPlugin("Jui 0.1.0 Beta")
+        new Webpack.BannerPlugin("钱小端的初体验")
     ],
     //入口文件配置
     entry: {
-        './dist/Jui':'./src/build.js',
         './app':'./example/main.js',
     },
     //产出文件配置

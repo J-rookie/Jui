@@ -1,7 +1,7 @@
 <template>
 	<div class="Jui-swipe-container">
 		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart="_start($event)">
-			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link" ">
+			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link">
 			<img :src="item.image"></a>
 		</nav>
 		<nav class="swipe-pagination" v-if="pagination">
