@@ -19,6 +19,8 @@ import radio from './CssComponentes/radio';
 
 const install = function(Vue){
 
+	if (install.installed) return;
+
 	Vue.component(sWitch.name, sWitch);
 	Vue.component(swipe.name, swipe);
 	Vue.component(actionSheet.name, actionSheet);

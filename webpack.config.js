@@ -49,7 +49,7 @@ module.exports={
             {test: /\.css$/, loader: "style!css"},
             // 添加到这！并且会按照文件大小, 或者转化为 base64, 或者单独作为文件
             //在大小限制后可以加上&name=./[name].[ext]，会将我们的文件生成在设定的文件夹下。
-            { test: /\.(png|jpg)$/, loader: "url-loader?limit=8192&name=./img/[name].[ext]" },
+            { test: /\.(png|jpg)$/, loader: "url-loader?limit=8192&name=./example/temp/images/[name].[ext]" },
             //sass编译
             {test: /\.scss$/, loader: "style!css!sass"},
             //转换ES6语法

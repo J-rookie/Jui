@@ -1,7 +1,7 @@
 'use strict'
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Jui from '../src/build';
+import Jui from '../src/build.js';
 
 import App from './modules/app.vue';
 import IndexView from './modules/indexView.vue';
