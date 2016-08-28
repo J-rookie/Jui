@@ -2,13 +2,13 @@
 <template>
 <div class="check-list">
      <div class="check-head">你喜欢什么样的女生</div>
-     <checklist :options="options1" :value.sync="value1"></checklist>
+     <jui-checklist :options="options1" :value.sync="value1"></jui-checklist>
      <div class="check-foot">你选择了{{value1}}</div>
 </div>
 
 <div class="check-list">
      <div class="check-head">你喜欢什么样的人</div>
-     <checklist :options="options2" :value.sync="value2" :max="2"></checklist>
+     <jui-checklist :options="options2" :value.sync="value2" :max="2"></jui-checklist>
      <div class="check-foot">你选择了{{value2}}</div>
 </div>
 
@@ -34,8 +34,6 @@
 </style>
 
 <script>
-    import Vue from 'vue'; 
-    import checklist from '../../src/CssComponentes/checklist';   
     //es6
     export default {
     	data() {
@@ -57,9 +55,6 @@
                 value2:[],
 		    };
 		  },
-        components: {
-            checklist:checklist,
-        },
     }
 
 </script>

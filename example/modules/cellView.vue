@@ -1,18 +1,18 @@
 
 <template>
 <div class="cell-box">
-    <juicell href="http://www.baidu.com"  title="跳去百度吧"></juicell>
-    <juicell title="标题文字" value="副标题"></juicell>
-    <juicell title="标题文字" value="有链接图标" link></juicell>
-    <juicell title="标题文字" link>
+    <jui-cell href="http://www.baidu.com"  title="跳去百度吧"></jui-cell>
+    <jui-cell title="标题文字" value="副标题"></jui-cell>
+    <jui-cell title="标题文字" value="有链接图标" link></jui-cell>
+    <jui-cell title="标题文字" link>
         <span style="color: #419EFE">这里是自定义元素</span>
-    </juicell>
-    <juicell title="标题文字" value="前头自定义图片">
+    </jui-cell>
+    <jui-cell title="标题文字" value="前头自定义图片">
         <span class="icon"slot="icon"></span>
-    </juicell>
+    </jui-cell>
 </div>
 <div class="cell-box">
-     <juicell href="http://www.baidu.com"  title="单独一个"></juicell>
+     <jui-cell href="http://www.baidu.com"  title="单独一个"></jui-cell>
 </div>
 </template>
 <style lang="sass">
@@ -29,13 +29,8 @@
 }
 </style>
 <script>
-    import Vue from 'vue'; 
-    import cell from '../../src/CssComponentes/cell';  
     //es6
     export default {
-        components: {
-            juicell:cell,
-        },
         methods:{
             back(){
                 alert("你点击了返回")

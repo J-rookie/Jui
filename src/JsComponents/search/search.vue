@@ -17,6 +17,7 @@
 <script type="text/javascript">
 	 import './search.scss';
 	 export default {
+	 	name:'jui-search',
 	 	data(){
 	 		return {
 	 			request:'',

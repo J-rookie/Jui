@@ -15,8 +15,6 @@
 }   
 </style>
 <script>
-    import Vue from 'vue';
-    import layer from '../../src/JsComponents/layer/index.js';  
     //es6
     export default {
          data () {
@@ -33,21 +31,21 @@
           layerFn(index){
             switch(index){
               case 0:
-              layer("我的天哪，好帅的作者!")
+              this.$layer("我的天哪，好帅的作者!")
               break;
               case 1:
-              layer.alert('这是一个美丽妖娆的弹窗,你觉得呢？',function(){
+              this.$layer.alert('这是一个美丽妖娆的弹窗,你觉得呢？',function(){
               console.log("这是确认之后的回调函数")
               });
               break;
               case 2:
-              layer.loading(2,5000);
+              this.$layer.loading(2,5000);
               break;
               case 3:
-              layer.confirm("这是一个美丽的弹窗<br>你觉得呢？",function(){
-                layer("这是确认之后的回调函数!")
+              this.$layer.confirm("这是一个美丽的弹窗<br>你觉得呢？",function(){
+                this.$layer("这是确认之后的回调函数!")
               },function(){
-                layer("这是取消之后的回调函数!")
+                this.$layer("这是取消之后的回调函数!")
               });
               break;
             }

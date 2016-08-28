@@ -1,9 +1,9 @@
 
 <template>
-      <picker-date :datevalues.sync="datevalues"></picker-date>
-      <picker-city style-class="blueSelect" :cityvalues.sync="cityvalues"></picker-city> 
-      <picker :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></picker> 
-      <picker style-class="blueSelect" :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></picker> 
+      <jui-picker-date :datevalues.sync="datevalues"></jui-picker-date>
+      <jui-picker-city style-class="blueSelect" :cityvalues.sync="cityvalues"></jui-picker-city> 
+      <jui-picker :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></jui-picker> 
+      <jui-picker style-class="blueSelect" :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></jui-picker> 
 </template>
 <style lang="sass">
 .blueSelect{
@@ -18,10 +18,6 @@
 }
 </style>
 <script>
-  import Vue from 'vue'; 
-  import pickerDate from '../../src/JsComponents/picker/pickerDate.vue';
-  import pickerCity from '../../src/JsComponents/picker/pickerCity.vue';
-  import picker from '../../src/JsComponents/picker/picker.vue';
     //es6
     export default {
          //data:function(){}，下面是es6写法
@@ -54,15 +50,5 @@
               }
             }
         },
-        components: {
-            pickerDate:pickerDate,
-            pickerCity:pickerCity,
-            picker:picker,
-        },
-        methods:{
-          aaa(){
-            console.log(JSON.stringify(this.datevalues))
-          }
-        }
     }
 </script>

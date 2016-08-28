@@ -1,9 +1,9 @@
 
 <template>
-        <choice type="0" :data="selectOne"></choice>
-        <choice type="1" :data="selectTwo"></choice>
-        <choice type="1" :data="selectThr"></choice>
-        <choice type="0" :data="selectFou"></choice>
+        <jui-actionsheet type="0" :data="selectOne"></jui-actionsheet>
+        <jui-actionsheet type="1" :data="selectTwo"></jui-actionsheet>
+        <jui-actionsheet type="1" :data="selectThr"></jui-actionsheet>
+        <jui-actionsheet type="0" :data="selectFou"></jui-actionsheet>
 </template>
 <style lang="sass">
 .select{
@@ -18,8 +18,6 @@
 }  
 </style>
 <script>
-    import Vue from 'vue'; 
-    import choice from '../../src/JsComponents/select/select.vue';  
     //es6
     export default {
          data () {
@@ -73,9 +71,6 @@
                     styleClass:"select",
                 }
             }
-        },
-        components: {
-            choice:choice,
         },
     }
 

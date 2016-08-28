@@ -13,7 +13,7 @@
     </jui-header>
     <jui-header title="完整版" color="#000">
         <div slot="left" @click="back"><span>返回</span></div>
-        <div slot="right" @click="back"><span>下一步</span></div>
+        <div slot="right" @click="next"><span>下一步</span></div>
     </jui-header>
 </template>
 <style lang="sass">
@@ -27,9 +27,7 @@
     float: left;
 }
 </style>
-<script>
-    import Vue from 'vue'; 
-    import headertop from '../../src/CssComponentes/header';  
+<script> 
     //es6
     export default {
          data () {
@@ -42,12 +40,12 @@
                 position:["top","center","bottom"]
             }
         },
-        components: {
-            juiHeader:headertop,
-        },
         methods:{
             back(){
                 alert("你点击了返回")
+            },
+            next(){
+                alert("你点击了下一步")
             }
         }
     }

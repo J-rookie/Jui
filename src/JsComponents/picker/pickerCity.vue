@@ -6,6 +6,7 @@
   	import picker from './picker.vue';
   	import Chinesecity from './chinesecity.js';
 	export default {
+    name:'jui-picker-city',
 		props:['cityvalues','styleClass'],
          data () {
             return {

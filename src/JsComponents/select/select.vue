@@ -14,6 +14,7 @@
 <script type="text/javascript">
 	 import './select.scss';
 	 export default {
+	 	name:'jui-actionsheet',
 	 	props:['type','data'],
 	 	data(){
 	 		return {

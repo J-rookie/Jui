@@ -61,7 +61,6 @@
         },
         watch:{
         	value(){
-        		      			console.log(this.limit)
         		if(this.limit){
         			this.value.pop();
         		}

@@ -6,7 +6,7 @@
 				<span v-text="title"></span>
 			</slot>
 		</label>
-		<div class="Jui-cell-value" v-if="value">
+		<div class="Jui-cell-value">
 			<slot>
 				<span v-text="value"></span>
 			</slot>
@@ -69,7 +69,7 @@
 </style>
 <script>
 	export default {
-		name:'juicell',
+		name:'jui-cell',
 		props: {
 			link: Boolean,
 		    title: String,

@@ -1,6 +1,7 @@
 'use strict'
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Jui from '../src/build';
 
 import App from './modules/app.vue';
 import IndexView from './modules/indexView.vue';
@@ -18,6 +19,7 @@ import checklistView from './modules/checklistView.vue';
 
 //使用路由
 Vue.use(VueRouter);
+Vue.use(Jui);
 
 //初始化
 var router = new VueRouter()

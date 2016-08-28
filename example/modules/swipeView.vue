@@ -1,6 +1,6 @@
 
 <template>
-    <swipe :swipeitem="swipeitem" :shuffling="shuffling" :pagination="pagination"></swipe>
+    <jui-swipe :swipeitem="swipeitem" :shuffling="shuffling" :pagination="pagination"></jui-swipe>
         <nav class="list">
         <a v-for="item in list" @click.prevent="_swipe($index)">{{item.title}}</a>
     </nav>
@@ -16,8 +16,6 @@
 }   
 </style>
 <script>
-    import Vue from 'vue'; 
-    import swipe from '../../src/JsComponents/swipe/swipe.vue';
     //es6
     export default {
          data () {
@@ -35,9 +33,6 @@
                 shuffling:false,
                 pagination:false,
             }
-        },
-        components: {
-                swipe,
         },
         methods:{
             _swipe(index){

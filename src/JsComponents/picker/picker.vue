@@ -20,6 +20,7 @@
 	import "./picker.scss";
 
 	export default{
+		name:'jui-picker',
 		props:['data','default','response','success','styleClass'],
 		data(){
 			return {

@@ -6,6 +6,7 @@
   	import picker from './picker.vue';
 
 	export default {
+    name:'jui-picker-date',
 		props:['datevalues','styleClass'],
          data () {
             return {

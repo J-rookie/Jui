@@ -2,13 +2,13 @@
 <template>
 <div class="radio-list">
      <div class="radio-head">你喜欢什么样的女生</div>
-     <radio :options="options1" :value.sync="value1"></radio>
+     <jui-radio :options="options1" :value.sync="value1"></jui-radio>
      <div class="radio-foot">你选择了{{value1}}</div>
 </div>
 
 <div class="radio-list">
      <div class="radio-head">你喜欢什么样的基友</div>
-     <radio :options="options2" :value.sync="value2"></radio>
+     <jui-radio :options="options2" :value.sync="value2"></jui-radio>
      <div class="radio-foot">你选择了{{value2}}</div>
 </div>
 </template>
@@ -32,9 +32,7 @@
 }
 </style>
 
-<script>
-    import Vue from 'vue'; 
-    import radio from '../../src/CssComponentes/radio';   
+<script> 
     //es6
     export default {
     	data() {
@@ -57,9 +55,6 @@
                 value2:'',
 		    };
 		  },
-        components: {
-            radio:radio,
-        },
     }
 
 </script>

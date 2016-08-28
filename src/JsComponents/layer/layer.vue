@@ -61,6 +61,7 @@
 <script type="text/javascript">
 	 import './layer.scss';
 	 export default {
+	 	name:'Jui-layer',
 	 	data(){
 	 		return {
 	 			message:'',

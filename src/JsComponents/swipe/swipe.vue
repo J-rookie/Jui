@@ -1,5 +1,5 @@
 <template>
-	<div class="jui-swipe-container">
+	<div class="Jui-swipe-container">
 		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart="_start($event)">
 			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link" ">
 			<img :src="item.image"></a>
@@ -14,6 +14,7 @@
 	import _event from '../../lib/event';
 
 	 export default {
+        name:'jui-swipe',
 	 	props: {
 		    swipeitem:'',
 		    shuffling:'',

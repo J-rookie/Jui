@@ -37,8 +37,6 @@
 }   
 </style>
 <script>
-    import Vue from 'vue'; 
-    import search from '../../src/JsComponents/search/index';
     //es6
     export default {
          data () {
@@ -48,11 +46,11 @@
         },
         methods:{
             iSearch:function(){
-                search();
+                this.$search();
             },
             iSearch1:function(){
                 var self=this;
-                search({
+                this.$search({
                     request:function(val,that){
                         self.value = val;
                         that.$destroy(true);
