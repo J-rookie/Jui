@@ -1,5 +1,5 @@
 <template>
-	<div class="Jui-swipe-container">
+	<div class="Jui-swipe-container" v-el:juiswipe>
 		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart="_start($event)">
 			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link">
 			<img :src="item.image"></a>
@@ -22,21 +22,34 @@
 		  },
          data () {
             return {
-            	sWidth:document.documentElement.clientWidth||document.body.clientWidth,
-            	swipeIndex:0,
-                swipeWidth:0,
             	swipetimer:'',
                 animation:true,
-                sWipeStyleW:this.swipeitem.length * 100 + '%',
+                sWidth:document.documentElement.clientWidth||document.body.clientWidth,
                 sWipeTransform:'translate3d(0px, 0px, 0px)',
+                transformValue:0,
             	eventKey:{
             		startX:0,
             		moveX:0,
             		startT:0,
             		endT:0,
                     left:0,
+                    distance:0,
             	}
             }
+        },
+        computed:{
+            sWipeStyleW(){
+                return 100*this.swipeitem.length+"%";
+            },
+            swipeIndex(){
+                return -~~(this.transformValue/this.sWidth);
+            },
+            TransformX(){
+                return -this.swipeIndex*this.sWidth+this.eventKey.distance;
+            }
+        },
+        ready(){
+            this.sWidth = this.$els.juiswipe.offsetWidth;
         },
         watch: {
         shuffling(val) {
@@ -46,56 +59,52 @@
                     clearInterval(this.swipetimer)
                 }
             },
-        swipeWidth(){
-            this.sWipeTransform = 'translate3d('+this.swipeWidth+'px, 0px, 0px)'
+        TransformX(){
+            this.sWipeTransform = 'translate3d('+this.TransformX+'px, 0px, 0px)';
             }
         },
         methods:{
             _animate(){
-                this.swipeIndex >= this.swipeitem.length-1 ? this.swipeIndex = 0 : this.swipeIndex++;
-                this.swipeWidth = this.sWidth*this.swipeIndex*-1
+                this.swipeIndex >= this.swipeitem.length-1 ? this.transformValue = 0 : this.transformValue-=this.sWidth;
             },
         	_start(e){
                 this.animation = false;
-        		var self = this.eventKey;
+        		let self = this.eventKey;
 				self.startX = e.touches[0].pageX;
 				self.startT = new Date().getTime();
-                self.left = this.swipeWidth;
 				_event._bind(e.target,'touchmove',this._move);
                 _event._bind(e.target,'touchend',this._end);
                 clearInterval(this.swipetimer)
         	},
         	_move(e){
-        		var self = this.eventKey;
+        		let self = this.eventKey;
 				self.moveX = e.touches[0].pageX;
-                this.swipeWidth = self.left + self.moveX - self.startX;	
-                this.swipeIndex = parseInt(Math.abs(this.swipeWidth)/this.sWidth);		
+                self.distance = self.moveX - self.startX;		
         	},
             _end(e){
                 this.animation = true;
-                var self = this.eventKey;
+                let self = this.eventKey;
                 self.endT = new Date().getTime();
-                var speed = self.endT - self.startT;
-                    if(this.swipeWidth>0){
-                    this.swipeWidth = 0;
-                    }else if(this.swipeWidth <-(this.swipeitem.length-1)*this.sWidth){
-                        this.swipeWidth = -(this.swipeitem.length-1)*this.sWidth;
+                let speed = self.endT - self.startT;
+                let tansformRight = -this.sWidth*(this.swipeitem.length-1);
+                this.transformValue = this.TransformX;
+                if(this.transformValue>=0){
+                        this.transformValue = 0;
+                    }else if(this.transformValue < tansformRight){
+                        this.transformValue = tansformRight;
                     }else{
-                        if(speed<300){
-                            if(self.moveX-self.startX>0){                 
-                                this.swipeWidth = this.swipeWidth-this.swipeWidth%this.sWidth;
-                            }else{
-                                this.swipeWidth = this.swipeWidth-this.swipeWidth%this.sWidth-this.sWidth;
+                         if(speed<300){
+                            if(self.distance<0){ 
+                               this.transformValue = this.transformValue-this.sWidth;
                             }
-                        }else{
-                            if(Math.abs(this.swipeWidth%this.sWidth)<=this.sWidth/2){
-                                this.swipeWidth = this.swipeWidth-this.swipeWidth%this.sWidth
-                            }else{
-                                this.swipeWidth = this.swipeWidth-this.sWidth-this.swipeWidth%this.sWidth;
+                         }else{
+                             if(this.transformValue%this.sWidth <= -this.sWidth/2){
+                                this.transformValue = this.transformValue-this.sWidth;
                             }
-                        }
                     }
-                this.swipeIndex = parseInt(Math.abs(this.swipeWidth)/this.sWidth);
+                }
+                self.distance = 0;
+                this.transformValue = this.TransformX;
                 _event._unbind(e.target,'touchmove',this._move);
                 _event._unbind(e.target,'touchend',this._end);
                 if(this.shuffling){

@@ -1578,7 +1578,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-cd4459f0/layer.vue"
+	  var id = "_v-5f464872/layer.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2168,7 +2168,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-6e706634/toast.vue"
+	  var id = "_v-b521221a/toast.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2357,7 +2357,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-33f33e44/search.vue"
+	  var id = "_v-596635dd/search.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2487,7 +2487,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-48915019/switch.vue"
+	  var id = "_v-575bd08c/switch.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2871,7 +2871,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-1324fb1a/swipe.vue"
+	  var id = "_v-4a2403d9/swipe.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2898,7 +2898,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// <template>
-	// 	<div class="Jui-swipe-container">
+	// 	<div class="Jui-swipe-container" v-el:juiswipe>
 	// 		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart="_start($event)">
 	// 			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link">
 	// 			<img :src="item.image"></a>
@@ -2918,21 +2918,35 @@
 	    },
 	    data: function data() {
 	        return {
-	            sWidth: document.documentElement.clientWidth || document.body.clientWidth,
-	            swipeIndex: 0,
-	            swipeWidth: 0,
 	            swipetimer: '',
 	            animation: true,
-	            sWipeStyleW: this.swipeitem.length * 100 + '%',
+	            sWidth: document.documentElement.clientWidth || document.body.clientWidth,
 	            sWipeTransform: 'translate3d(0px, 0px, 0px)',
+	            transformValue: 0,
 	            eventKey: {
 	                startX: 0,
 	                moveX: 0,
 	                startT: 0,
 	                endT: 0,
-	                left: 0
+	                left: 0,
+	                distance: 0
 	            }
 	        };
+	    },
+
+	    computed: {
+	        sWipeStyleW: function sWipeStyleW() {
+	            return 100 * this.swipeitem.length + "%";
+	        },
+	        swipeIndex: function swipeIndex() {
+	            return -~~(this.transformValue / this.sWidth);
+	        },
+	        TransformX: function TransformX() {
+	            return -this.swipeIndex * this.sWidth + this.eventKey.distance;
+	        }
+	    },
+	    ready: function ready() {
+	        this.sWidth = this.$els.juiswipe.offsetWidth;
 	    },
 
 	    watch: {
@@ -2943,21 +2957,19 @@
 	                clearInterval(this.swipetimer);
 	            }
 	        },
-	        swipeWidth: function swipeWidth() {
-	            this.sWipeTransform = 'translate3d(' + this.swipeWidth + 'px, 0px, 0px)';
+	        TransformX: function TransformX() {
+	            this.sWipeTransform = 'translate3d(' + this.TransformX + 'px, 0px, 0px)';
 	        }
 	    },
 	    methods: {
 	        _animate: function _animate() {
-	            this.swipeIndex >= this.swipeitem.length - 1 ? this.swipeIndex = 0 : this.swipeIndex++;
-	            this.swipeWidth = this.sWidth * this.swipeIndex * -1;
+	            this.swipeIndex >= this.swipeitem.length - 1 ? this.transformValue = 0 : this.transformValue -= this.sWidth;
 	        },
 	        _start: function _start(e) {
 	            this.animation = false;
 	            var self = this.eventKey;
 	            self.startX = e.touches[0].pageX;
 	            self.startT = new Date().getTime();
-	            self.left = this.swipeWidth;
 	            _event3.default._bind(e.target, 'touchmove', this._move);
 	            _event3.default._bind(e.target, 'touchend', this._end);
 	            clearInterval(this.swipetimer);
@@ -2965,34 +2977,32 @@
 	        _move: function _move(e) {
 	            var self = this.eventKey;
 	            self.moveX = e.touches[0].pageX;
-	            this.swipeWidth = self.left + self.moveX - self.startX;
-	            this.swipeIndex = parseInt(Math.abs(this.swipeWidth) / this.sWidth);
+	            self.distance = self.moveX - self.startX;
 	        },
 	        _end: function _end(e) {
 	            this.animation = true;
 	            var self = this.eventKey;
 	            self.endT = new Date().getTime();
 	            var speed = self.endT - self.startT;
-	            if (this.swipeWidth > 0) {
-	                this.swipeWidth = 0;
-	            } else if (this.swipeWidth < -(this.swipeitem.length - 1) * this.sWidth) {
-	                this.swipeWidth = -(this.swipeitem.length - 1) * this.sWidth;
+	            var tansformRight = -this.sWidth * (this.swipeitem.length - 1);
+	            this.transformValue = this.TransformX;
+	            if (this.transformValue >= 0) {
+	                this.transformValue = 0;
+	            } else if (this.transformValue < tansformRight) {
+	                this.transformValue = tansformRight;
 	            } else {
 	                if (speed < 300) {
-	                    if (self.moveX - self.startX > 0) {
-	                        this.swipeWidth = this.swipeWidth - this.swipeWidth % this.sWidth;
-	                    } else {
-	                        this.swipeWidth = this.swipeWidth - this.swipeWidth % this.sWidth - this.sWidth;
+	                    if (self.distance < 0) {
+	                        this.transformValue = this.transformValue - this.sWidth;
 	                    }
 	                } else {
-	                    if (Math.abs(this.swipeWidth % this.sWidth) <= this.sWidth / 2) {
-	                        this.swipeWidth = this.swipeWidth - this.swipeWidth % this.sWidth;
-	                    } else {
-	                        this.swipeWidth = this.swipeWidth - this.sWidth - this.swipeWidth % this.sWidth;
+	                    if (this.transformValue % this.sWidth <= -this.sWidth / 2) {
+	                        this.transformValue = this.transformValue - this.sWidth;
 	                    }
 	                }
 	            }
-	            this.swipeIndex = parseInt(Math.abs(this.swipeWidth) / this.sWidth);
+	            self.distance = 0;
+	            this.transformValue = this.TransformX;
 	            _event3.default._unbind(e.target, 'touchmove', this._move);
 	            _event3.default._unbind(e.target, 'touchend', this._end);
 	            if (this.shuffling) {
@@ -3098,7 +3108,7 @@
 /* 102 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"Jui-swipe-container\">\n\t<nav class=\"swipe-wrapper\" :class=\"{duration:animation}\" :style=\"{width:sWipeStyleW,transform:sWipeTransform}\" v-on:touchstart=\"_start($event)\">\n\t\t<a class=\"swipe-slide\" v-for=\"item in swipeitem\" :href=\"item.link\">\n\t\t<img :src=\"item.image\"></a>\n\t</nav>\n\t<nav class=\"swipe-pagination\" v-if=\"pagination\">\n\t\t<a v-for=\"item in swipeitem\" :class=\"{'active':$index==swipeIndex}\"></a>\n\t</nav>\n</div>\n";
+	module.exports = "\n<div class=\"Jui-swipe-container\" v-el:juiswipe>\n\t<nav class=\"swipe-wrapper\" :class=\"{duration:animation}\" :style=\"{width:sWipeStyleW,transform:sWipeTransform}\" v-on:touchstart=\"_start($event)\">\n\t\t<a class=\"swipe-slide\" v-for=\"item in swipeitem\" :href=\"item.link\">\n\t\t<img :src=\"item.image\"></a>\n\t</nav>\n\t<nav class=\"swipe-pagination\" v-if=\"pagination\">\n\t\t<a v-for=\"item in swipeitem\" :class=\"{'active':$index==swipeIndex}\"></a>\n\t</nav>\n</div>\n";
 
 /***/ },
 /* 103 */
@@ -3120,7 +3130,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-16607910/actionsheet.vue"
+	  var id = "_v-9d76b492/actionsheet.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3252,7 +3262,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-3fcb7418/grids.vue"
+	  var id = "_v-4e1a9752/grids.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3458,7 +3468,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-34290a87/cell.vue"
+	  var id = "_v-11ed7330/cell.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3622,7 +3632,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-008fd21e/picker.vue"
+	  var id = "_v-73efa71d/picker.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3735,7 +3745,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-0582d606/picker-slot.vue"
+	  var id = "_v-43c7075e/picker-slot.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3978,7 +3988,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-46d66bec/pickerDate.vue"
+	  var id = "_v-a794ad2a/pickerDate.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4105,7 +4115,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-f17e21ae/pickerCity.vue"
+	  var id = "_v-26bfa6b0/pickerCity.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4620,7 +4630,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-59b9b21c/header.vue"
+	  var id = "_v-5ee3ee93/header.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4778,7 +4788,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-4b9fa1d1/checklist.vue"
+	  var id = "_v-fac2aae0/checklist.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4940,7 +4950,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-8ece19b4/radio.vue"
+	  var id = "_v-51c03365/radio.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
