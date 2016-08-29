@@ -1,16 +1,22 @@
 
 <template>
-<div class="search">
+<jui-header title="search" back></jui-header>
+<div class="page-serch">
+<div class="search s1">
     <div class="input" @click="iSearch"><a class="btn"></a></div>
 </div>
-<div class="search s1">
+<div class="search">
     <div class="input" @click="iSearch1">{{value}}<a class="btn"></a></div>
+</div>
 </div>
 </template>
 <style lang="sass">
+.page-serch{
+    padding:10px 0;
  .search{
   padding:10px;
   background-color:#419EFE;
+  margin-bottom:20px;
   .input{
     background-color: #fff;
     line-height:30px;
@@ -29,12 +35,13 @@
     }
   }
   &.s1{
-    background-color:#000;
+    background-color:#f6194d;
     .btn{
-        background-color:#000;
-    }
-  }
-}   
+        background-color:#f6194d;
+        }
+      }
+    } 
+} 
 </style>
 <script>
     //es6
@@ -46,7 +53,9 @@
         },
         methods:{
             iSearch:function(){
-                this.$search();
+                this.$search({
+                    color:'#f6194d'
+                });
             },
             iSearch1:function(){
                 var self=this;

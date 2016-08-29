@@ -70,6 +70,7 @@ module.exports={
         // require时省略的扩展名，如：require('module') 不需要module.js
         extensions: ['', '.js', '.vue'],
     },
-    // 开启source-map，webpack有多种source-map，在官网文档可以查到
-    devtool: 'eval-source-map'
+    // 开启source-map，webpack有多种source-map，在官网文档可以查到//生产模式要关闭否则体积吓死你
+    /*devtool: 'eval-source-map'*/
+    devtool: false,
 }

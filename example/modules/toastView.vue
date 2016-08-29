@@ -1,21 +1,33 @@
 
 <template>
+    <jui-header title="toast" back></jui-header>
+    <div class="page-toast">
         <nav class="list">
         <a v-for="item in list" @click.prevent="Prompt($index)">{{item.title}}</a>
         </nav>
         <nav class="list">
         <a v-for="item in position" @click.prevent="PromptP($index)">{{item}}</a>
         </nav>
+    </div>
 </template>
 <style lang="sass">
- .list{
-  background-color:#fff;
-  color:#323232;
-  a{
-    display: block;
-    line-height:30px;
-  }
-}   
+ .page-toast{
+    padding-top:10px;
+     .list{
+        padding:10px;
+        background-color:#fff;
+        color:#323232;
+    a{
+        display: block;
+        line-height:40px;
+        text-align: center;
+        border:1px solid #ccc;
+        margin-bottom: 10px;
+        background-color:#f1f1f1;
+        border-radius: 4px;
+        } 
+    }
+}    
 </style>
 <script>
     //es6

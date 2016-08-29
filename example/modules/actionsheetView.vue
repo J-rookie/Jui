@@ -1,11 +1,17 @@
 
 <template>
-        <jui-actionsheet type="0" :data="selectOne"></jui-actionsheet>
-        <jui-actionsheet type="1" :data="selectTwo"></jui-actionsheet>
-        <jui-actionsheet type="1" :data="selectThr"></jui-actionsheet>
-        <jui-actionsheet type="0" :data="selectFou"></jui-actionsheet>
+        <jui-header title="actionsheet" back></jui-header>
+        <div class="page-actionsheet">
+        <jui-actionsheet :type="0" :data="selectOne"></jui-actionsheet>
+        <jui-actionsheet :type="1" :data="selectTwo" style-class="select"></jui-actionsheet>
+        <jui-actionsheet :type="1" :data="selectThr"></jui-actionsheet>
+        <jui-actionsheet :type="0" :data="selectFou" style-class="select"></jui-actionsheet>
+        </div>
 </template>
 <style lang="sass">
+.page-actionsheet{
+    padding:10px;
+}
 .select{
     border:1px solid #ccc;
     background-color:#419EFE;
@@ -15,6 +21,7 @@
     height:40px;
     font-size:14px;
     color:#fff;
+    margin:10px 0;
 }  
 </style>
 <script>

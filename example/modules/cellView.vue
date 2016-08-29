@@ -1,6 +1,7 @@
 
 <template>
-<div class="cell-box">
+    <jui-header title="cell" back></jui-header>
+<div class="page-cell">
     <jui-cell href="http://www.baidu.com"  title="跳去百度吧"></jui-cell>
     <jui-cell title="标题文字" value="副标题"></jui-cell>
     <jui-cell title="标题文字" value="有链接图标" link></jui-cell>
@@ -10,13 +11,14 @@
     <jui-cell title="标题文字" value="前头自定义图片">
         <span class="icon"slot="icon"></span>
     </jui-cell>
+    <jui-cell title="自定义事件" @click="sucess"></jui-cell>
 </div>
-<div class="cell-box">
-     <jui-cell href="http://www.baidu.com"  title="单独一个"></jui-cell>
+<div class="page-cell">
+     <jui-cell title="单独一块"></jui-cell>
 </div>
 </template>
 <style lang="sass">
-.cell-box{
+.page-cell{
     margin:10px 0;
 }
 .icon{
@@ -32,8 +34,8 @@
     //es6
     export default {
         methods:{
-            back(){
-                alert("你点击了返回")
+            sucess(){
+                alert("别乱点 懂吗")
             }
         }
     }

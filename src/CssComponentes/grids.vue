@@ -1,10 +1,10 @@
 <template>
-	<nav class="Jui-grids">
+	<nav :class="{'Jui-grids':true,'Jui-grids-nb':!border}">
 		<a class="Jui-grid" v-for="item in options" :style="{width:gridcols}" :href="item.link" @click="succes($index)">
-			<div class="Jui-grid-img">
+			<div class="Jui-grid-img" v-if="item.image">
 				<img :src="item.image">
 			</div>
-			<div class="Jui-grid-title">{{item.title}}</div>
+			<div class="Jui-grid-title">{{item.title||item}}</div>
 		</a>
 	</nav>
 </template>
@@ -88,6 +88,11 @@
 			font-size: 14px;
 			color: #999;
 		}
+		&.Jui-grids-nb{
+			&:before,&:after,*:before,*:after{
+				display:none;
+			}
+		}
 	}
 </style>
 <script>
@@ -97,6 +102,7 @@
 		    grids: Array,
 		    cols:Number,
 		    options: Array,
+		    border:Boolean,
 		  },
 		computed:{
 			gridcols(){
@@ -105,7 +111,9 @@
 		},
 		methods:{
 			succes(index){
-				console.log(index)
+				if(this.options[index].succes){
+					this.options[index].succes();
+				}	
 			}
 		}
 	}

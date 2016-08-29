@@ -2,9 +2,9 @@
 <template>
 	<div class="Jui-search">
     <form class="Jui-search-tool" @submit.prevent="requestFn">
-        <div class="Jui-search-inner" :style="{'background-color':scolor}">
+        <div class="Jui-search-inner" :style="{'background-color':color}">
             <input type="text" v-el:keyword v-model="keyword"/>
-            <button type="submit" class="Jui-search-submit" :style="{'background-color':scolor}"></button>
+            <button type="submit" class="Jui-search-submit" :style="{'background-color':color}"></button>
             <div class="iBack" @click='closeSearch'>取消</div>
         </div>
     </form> 
@@ -23,7 +23,7 @@
 	 			request:'',
 	 			historical:[],
 	 			keyword:'',
-	 			scolor:'',
+	 			color:'',
 	 		}
 	 	},
 	 	ready(){

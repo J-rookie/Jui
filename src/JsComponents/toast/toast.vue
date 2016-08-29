@@ -1,6 +1,6 @@
 
 <template>
-	<div class="jui-toast" :class="position" transition="expand">
+	<div class="jui-toast" :class="position" transition="Jui-toast">
 		<span class="text" v-if="type==0">{{message}}</span>
 		<div class="info" v-if="type!=0">
 			<img v-if="imgSrc" :src="imgSrc">

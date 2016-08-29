@@ -4,7 +4,7 @@
 		<div class="jui-layer-mask" v-if="shade" @click="shadeCloseFn()">
 			<div class="jui-layer-close" v-if="close" @click="closeFn"></div>
 		</div>
-		<div class="jui-layer-content" v-if="show" transition="fade">			
+		<div class="jui-layer-content" v-if="show" transition="Jui-fade">			
 
 			<div class="jui-layer-msg" v-if="type == 0">
 				<div class="layer-msg-con">{{message}}</div>

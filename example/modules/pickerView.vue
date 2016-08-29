@@ -1,11 +1,17 @@
 
 <template>
+      <jui-header title="picker" back></jui-header>
+      <div class="page-picker">
       <jui-picker-date :datevalues.sync="datevalues"></jui-picker-date>
       <jui-picker-city style-class="blueSelect" :cityvalues.sync="cityvalues"></jui-picker-city> 
       <jui-picker :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></jui-picker> 
-      <jui-picker style-class="blueSelect" :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></jui-picker> 
+      <jui-picker style-class="blueSelect" :data.sync="selectDate.slot" :default="selectDate.default" :response.sync="selectDate.response"></jui-picker>
+      </div> 
 </template>
 <style lang="sass">
+.page-picker{
+  padding:10px;
+}
 .blueSelect{
     border:1px solid #ccc;
     background-color:#419EFE;
@@ -15,6 +21,7 @@
     height:40px;
     font-size:14px;
     color:#fff;
+    margin:10px 0;
 }
 </style>
 <script>

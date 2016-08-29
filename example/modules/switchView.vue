@@ -1,5 +1,6 @@
 
 <template>
+    <jui-header title="switch" back></jui-header>
 	<div class="cell-padding">
     <jui-switch :value.sync="value1">
     	<label v-text="value1"></label>

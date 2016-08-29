@@ -1,21 +1,29 @@
 
 <template>
-<div class="check-list">
+
+<jui-header title="checklist" fixed back></jui-header>
+<div class="page-checklist">
+<div class="page-checklist-box">
      <div class="check-head">你喜欢什么样的女生</div>
      <jui-checklist :options="options1" :value.sync="value1"></jui-checklist>
      <div class="check-foot">你选择了{{value1}}</div>
 </div>
 
-<div class="check-list">
+<div class="page-checklist-box">
      <div class="check-head">你喜欢什么样的人</div>
      <jui-checklist :options="options2" :value.sync="value2" :max="2"></jui-checklist>
      <div class="check-foot">你选择了{{value2}}</div>
 </div>
 
+</div>
+
 </template>
 
 <style lang="sass">
-.check-list{
+.page-checklist{
+    padding-top:40px;
+}
+.page-checklist-box{
 	padding:10px 0;
     .check-head{
         padding:10px;

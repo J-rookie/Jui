@@ -4,7 +4,7 @@ import search from './JsComponents/search/index.js';
 
 import sWitch from './CssComponentes/switch'; 
 import swipe from './JsComponents/swipe/swipe.vue';
-import actionSheet from './JsComponents/select/select.vue'; 
+import actionSheet from './JsComponents/actionsheet/actionsheet.vue'; 
 import grids from './CssComponentes/grids'; 
 import cell from './CssComponentes/cell'; 
 
@@ -34,9 +34,13 @@ const install = function(Vue){
 	Vue.component(checklist.name, checklist);
 
 
-	Vue.$layer = Vue.prototype.$layer = layer;
- 	Vue.$toast = Vue.prototype.$toast = toast;
- 	Vue.$search = Vue.prototype.$search = search;
+	let searchResult = search(Vue);
+	let toastResult = toast(Vue);
+	let layerResult = layer(Vue);
+
+	Vue.$layer = Vue.prototype.$layer = layerResult;
+ 	Vue.$toast = Vue.prototype.$toast = toastResult;
+ 	Vue.$search = Vue.prototype.$search = searchResult;
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

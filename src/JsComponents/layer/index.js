@@ -1,7 +1,7 @@
-import Vue from 'vue';
 import LayerVue from './layer.vue';
 
-var defaults = {
+const layer = function(Vue){
+	var defaults = {
 	message:"",
 	type:0,
 	close:false,
@@ -12,91 +12,94 @@ var defaults = {
 	yes:'',
 	timer:0,
 	show:true,
-}
+	}
 
-var layerConstructor = Vue.extend(LayerVue);
+	var layerConstructor = Vue.extend(LayerVue);
 
-var initData,layerNum;
+	var initData,layerNum;
 
-	layerNum = 0;
+		layerNum = 0;
 
-var layerInit = function(){
-	return new layerConstructor({el: document.createElement('div')});
-}
+	var layerInit = function(){
+		return new layerConstructor({el: document.createElement('div')});
+	}
 
-var dataCopy = function(obj){
+	var dataCopy = function(obj){
 
-	if(typeof obj != 'object'){
-		return obj;
-	}	
-	var newData = {};	
-	for(var attr in obj){
-		newData[attr] = dataCopy(obj[attr]);
-	}	
-	return newData;
-}
+		if(typeof obj != 'object'){
+			return obj;
+		}	
+		var newData = {};	
+		for(var attr in obj){
+			newData[attr] = dataCopy(obj[attr]);
+		}	
+		return newData;
+	}
 
-var layer = function(options){
-	let InitLayer = layerInit();
-	if( typeof options === "string"){
-		initData = dataCopy(defaults);
-		initData.message = options;
-		for(var prop in initData){
-			InitLayer[prop] = initData[prop]
-		}		
-	}else if(typeof options === "object" && Object.prototype.toString.call(options).toLowerCase() == "[object object]" && !options.length){
-		initData = dataCopy(defaults);
-		for(var prop in options){
-			initData[prop] = options[prop]
+	var result = function(options){
+		let InitLayer = layerInit();
+		if( typeof options === "string"){
+			initData = dataCopy(defaults);
+			initData.message = options;
+			for(var prop in initData){
+				InitLayer[prop] = initData[prop]
+			}		
+		}else if(typeof options === "object" && Object.prototype.toString.call(options).toLowerCase() == "[object object]" && !options.length){
+			initData = dataCopy(defaults);
+			for(var prop in options){
+				initData[prop] = options[prop]
+			}
+			for(var prop in initData){
+				InitLayer[prop] = initData[prop]
+			}
 		}
-		for(var prop in initData){
-			InitLayer[prop] = initData[prop]
+		InitLayer.$appendTo(document.body);
+		result.assembly[layerNum] = InitLayer;
+		layerNum++;
+		result.assembly.length = layerNum;
+		return InitLayer;
+	};
+
+	result.assembly = {};
+	result.assembly.length = 0;
+	 
+	result.alert = function(msg,yesFn){
+		let data = {
+			type:1,
+			message:msg,
+			yes:yesFn||''
+		}
+		return result(data);
+	}
+
+	result.loading = function(iconType,time){
+		let data = {
+			type:2,
+			icon:iconType,
+			timer: time || 0,
+			shadeClose: false,
+		}
+		return result(data);
+	}
+
+	result.confirm = function(msg,yesFn,noFn){
+		let data = {
+			type:3,
+			message:msg,
+			yes:yesFn||'',
+			no:noFn||'',
+		}
+		return result(data);
+
+	}
+
+	result.closeAll = function(){
+		for(var i=0;i<result.assembly.length;i++){
+			result.assembly[i].$destroy(true);
 		}
 	}
-	InitLayer.$appendTo(document.body);
-	layer.assembly[layerNum] = InitLayer;
-	layerNum++;
-	layer.assembly.length = layerNum;
-	return InitLayer;
-};
 
-layer.assembly = {};
-layer.assembly.length = 0;
- 
-layer.alert = function(msg,yesFn){
-	let data = {
-		type:1,
-		message:msg,
-		yes:yesFn||''
-	}
-	return layer(data);
-}
-
-layer.loading = function(iconType,time){
-	let data = {
-		type:2,
-		icon:iconType,
-		timer: time || 0,
-		shadeClose: false,
-	}
-	return layer(data);
-}
-
-layer.confirm = function(msg,yesFn,noFn){
-	let data = {
-		type:3,
-		message:msg,
-		yes:yesFn||'',
-		no:noFn||'',
-	}
-	return layer(data);
-
-}
-
-layer.closeAll = function(){
-	for(var i=0;i<layer.assembly.length;i++){
-		layer.assembly[i].$destroy(true);
-	}
+	return result;
 }
 
 export default layer;

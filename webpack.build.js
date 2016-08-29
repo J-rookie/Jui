@@ -16,7 +16,7 @@ var Webpack = require("webpack");
 module.exports={
     //插件配置
     plugins: [//注意这是一个数组..
-        new Webpack.BannerPlugin("钱小端的初体验")
+        new Webpack.BannerPlugin("Jui 1.0.0")
     ],
     //入口文件配置
     entry: {

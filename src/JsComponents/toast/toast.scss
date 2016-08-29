@@ -41,13 +41,13 @@
 	}
 }
 /* 必需 */
-.expand-transition {
-  transition: all .5s ease;
+.Jui-toast-transition {
+  transition: all .3s ease;
   overflow: hidden;
 }
 
 /* .expand-enter 定义进入的开始状态 */
 /* .expand-leave 定义离开的结束状态 */
-.expand-enter, .expand-leave {
+.Jui-toast-enter, .Jui-toast-leave {
   opacity: 0;
 }

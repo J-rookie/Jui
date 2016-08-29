@@ -1,4 +1,4 @@
-.Jui-select{
+.Jui-actionsheet{
 	border:1px solid #ccc;
 	background-color:#f1f1f1;
 	border-radius:4px;
@@ -43,24 +43,24 @@
 	}
 }
 /* 必需 */
-.expand-transition {
-  transition: all .5s ease;
+.Jui-expand-transition {
+  transition: all .3s ease;
   overflow: hidden;
 }
 
 /* .expand-enter 定义进入的开始状态 */
 /* .expand-leave 定义离开的结束状态 */
-.expand-enter, .expand-leave {
+.Jui-expand-enter, .Jui-expand-leave {
   opacity: 0;
 }
 
-.slide-transition {
-  transition: all .5s ease;
+.Jui-slide-transition {
+  transition: all .3s ease;
   transform:translateY(0px);
   -webkit-transform:translateY(0px);
 }
 
-.slide-enter, .slide-leave {
+.Jui-slide-enter, .Jui-slide-leave {
 	transform:translateY(200px);
 	 -webkit-transform:translateY(200px);
 }

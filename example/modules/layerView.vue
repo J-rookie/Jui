@@ -1,18 +1,30 @@
 
 <template>
+  <jui-header title="layer" back></jui-header>
+  <div class="page-layer">
     <nav class="list">
         <a v-for="item in list" @click="layerFn($index)">{{item.title}}</a>
-      </nav>      
+    </nav>
+  </div>      
 </template>
 <style lang="sass">
- .list{
-  background-color:#fff;
-  color:#323232;
-  a{
-    display: block;
-    line-height:30px;
+ .page-layer{
+    padding-top:10px;
+     .list{
+        padding:10px;
+        background-color:#fff;
+        color:#323232;
+    a{
+        display: block;
+        line-height:40px;
+        text-align: center;
+        border:1px solid #ccc;
+        margin-bottom: 10px;
+        background-color:#f1f1f1;
+        border-radius: 4px;
+    } 
   }
-}   
+}  
 </style>
 <script>
     //es6
@@ -39,7 +51,7 @@
               });
               break;
               case 2:
-              this.$layer.loading(2,5000);
+              this.$layer.loading(1,2000);
               break;
               case 3:
               this.$layer.confirm("这是一个美丽的弹窗<br>你觉得呢？",function(){
