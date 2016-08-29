@@ -39,7 +39,7 @@
         },
         computed:{
             sWipeStyleW(){
-                return 100*this.swipeitem.length+"%";
+                return this.sWidth*this.swipeitem.length+"px";
             },
             swipeIndex(){
                 return -~~(this.transformValue/this.sWidth);
