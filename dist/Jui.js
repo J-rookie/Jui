@@ -1578,7 +1578,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-5f464872/layer.vue"
+	  var id = "_v-cd4459f0/layer.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2168,7 +2168,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-b521221a/toast.vue"
+	  var id = "_v-6e706634/toast.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2357,7 +2357,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-596635dd/search.vue"
+	  var id = "_v-33f33e44/search.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2487,7 +2487,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-575bd08c/switch.vue"
+	  var id = "_v-48915019/switch.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2871,7 +2871,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-4a2403d9/swipe.vue"
+	  var id = "_v-1324fb1a/swipe.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2899,7 +2899,7 @@
 
 	// <template>
 	// 	<div class="Jui-swipe-container" v-el:juiswipe>
-	// 		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart="_start($event)">
+	// 		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart.prevent="_start($event)">
 	// 			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link">
 	// 			<img :src="item.image"></a>
 	// 		</nav>
@@ -2936,7 +2936,7 @@
 
 	    computed: {
 	        sWipeStyleW: function sWipeStyleW() {
-	            return 100 * this.swipeitem.length + "%";
+	            return this.sWidth * this.swipeitem.length + "px";
 	        },
 	        swipeIndex: function swipeIndex() {
 	            return -~~(this.transformValue / this.sWidth);
@@ -3049,7 +3049,7 @@
 
 
 	// module
-	exports.push([module.id, ".Jui-swipe-container {\n  width: 100%;\n  overflow: hidden;\n  position: relative; }\n  .Jui-swipe-container .swipe-wrapper {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    transform: translate3d(0px, 0px, 0px);\n    -webkit-transform: translate3d(0px, 0px, 0px); }\n    .Jui-swipe-container .swipe-wrapper.duration {\n      transition-duration: 200ms; }\n    .Jui-swipe-container .swipe-wrapper a {\n      flex: 1;\n      -webkit-flex: 1;\n      display: block; }\n      .Jui-swipe-container .swipe-wrapper a img {\n        display: block;\n        width: 100%; }\n  .Jui-swipe-container .swipe-pagination {\n    position: absolute;\n    width: 100%;\n    text-align: center;\n    z-index: 90;\n    left: 0;\n    bottom: 5%; }\n    .Jui-swipe-container .swipe-pagination a {\n      display: inline-block;\n      width: 10px;\n      height: 10px;\n      border-radius: 10px;\n      margin: 0 5px;\n      background-color: #fff; }\n      .Jui-swipe-container .swipe-pagination a.active {\n        background-color: #38a8d7; }\n", ""]);
+	exports.push([module.id, ".Jui-swipe-container {\n  width: 100%;\n  overflow: hidden;\n  position: relative; }\n  .Jui-swipe-container .swipe-wrapper {\n    display: flex;\n    display: -webkit-flex;\n    display: -webkit-box;\n    transform: translate3d(0px, 0px, 0px);\n    -webkit-transform: translate3d(0px, 0px, 0px); }\n    .Jui-swipe-container .swipe-wrapper.duration {\n      transition-duration: 200ms; }\n    .Jui-swipe-container .swipe-wrapper a {\n      flex: 1;\n      -webkit-flex: 1;\n      box-flex: 1;\n      -webkit-box-flex: 1;\n      display: block; }\n      .Jui-swipe-container .swipe-wrapper a img {\n        display: block;\n        width: 100%; }\n  .Jui-swipe-container .swipe-pagination {\n    position: absolute;\n    width: 100%;\n    text-align: center;\n    z-index: 90;\n    left: 0;\n    bottom: 5%; }\n    .Jui-swipe-container .swipe-pagination a {\n      display: inline-block;\n      width: 10px;\n      height: 10px;\n      border-radius: 10px;\n      margin: 0 5px;\n      background-color: #fff; }\n      .Jui-swipe-container .swipe-pagination a.active {\n        background-color: #38a8d7; }\n", ""]);
 
 	// exports
 
@@ -3108,7 +3108,7 @@
 /* 102 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"Jui-swipe-container\" v-el:juiswipe>\n\t<nav class=\"swipe-wrapper\" :class=\"{duration:animation}\" :style=\"{width:sWipeStyleW,transform:sWipeTransform}\" v-on:touchstart=\"_start($event)\">\n\t\t<a class=\"swipe-slide\" v-for=\"item in swipeitem\" :href=\"item.link\">\n\t\t<img :src=\"item.image\"></a>\n\t</nav>\n\t<nav class=\"swipe-pagination\" v-if=\"pagination\">\n\t\t<a v-for=\"item in swipeitem\" :class=\"{'active':$index==swipeIndex}\"></a>\n\t</nav>\n</div>\n";
+	module.exports = "\n<div class=\"Jui-swipe-container\" v-el:juiswipe>\n\t<nav class=\"swipe-wrapper\" :class=\"{duration:animation}\" :style=\"{width:sWipeStyleW,transform:sWipeTransform}\" v-on:touchstart.prevent=\"_start($event)\">\n\t\t<a class=\"swipe-slide\" v-for=\"item in swipeitem\" :href=\"item.link\">\n\t\t<img :src=\"item.image\"></a>\n\t</nav>\n\t<nav class=\"swipe-pagination\" v-if=\"pagination\">\n\t\t<a v-for=\"item in swipeitem\" :class=\"{'active':$index==swipeIndex}\"></a>\n\t</nav>\n</div>\n";
 
 /***/ },
 /* 103 */
@@ -3130,7 +3130,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-9d76b492/actionsheet.vue"
+	  var id = "_v-16607910/actionsheet.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3262,7 +3262,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-4e1a9752/grids.vue"
+	  var id = "_v-3fcb7418/grids.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3468,7 +3468,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-11ed7330/cell.vue"
+	  var id = "_v-34290a87/cell.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3632,7 +3632,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-73efa71d/picker.vue"
+	  var id = "_v-008fd21e/picker.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3745,7 +3745,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-43c7075e/picker-slot.vue"
+	  var id = "_v-0582d606/picker-slot.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3988,7 +3988,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-a794ad2a/pickerDate.vue"
+	  var id = "_v-46d66bec/pickerDate.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4115,7 +4115,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-26bfa6b0/pickerCity.vue"
+	  var id = "_v-f17e21ae/pickerCity.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4630,7 +4630,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-5ee3ee93/header.vue"
+	  var id = "_v-59b9b21c/header.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4673,7 +4673,7 @@
 
 
 	// module
-	exports.push([module.id, ".Jui-header {\n  padding: 0 10px;\n  background-color: #419EFE;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 16px;\n  color: #fff;\n  height: 44px;\n  line-height: 44px;\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box; }\n  .Jui-header .Jui-header-left {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-align: left;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex; }\n    .Jui-header .Jui-header-left .Jui-arrow-left {\n      background: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAYAAAD+MdrbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDOUU5NTdBMTY4NDYxMUU2QjlBN0IzMDUxQzE0MzlCQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDOUU5NTdBMjY4NDYxMUU2QjlBN0IzMDUxQzE0MzlCQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkM5RTk1NzlGNjg0NjExRTZCOUE3QjMwNTFDMTQzOUJDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkM5RTk1N0EwNjg0NjExRTZCOUE3QjMwNTFDMTQzOUJDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+LCOx1wAAAP5JREFUeNrs1j0OAUEYxnGrITpBsXEAGyegQ0lBKH30buMKKgcgCjqJ1h1EQoRNfHQU45HsG5PNmv3I25CZ5Fft5J/d2Z3JGkKIGOeIx5iHDurgrwULkOEKlmABYzCVM9972UcFduIzRqr5frEa7KXYBqyowTqcpdga8n5P9O1CE2wptgIzwPJ4BttwkWJLyAaJeQW7cJdic0gHjbmDfVdsFjZGwQQM4eGEnjCBVNgYBYtwk+7sCLkoMQomue+QDFxrOI26hrIe51smHbhyfYekxblTSINzL8unzYHrtCFVzvOQlGHrbEflWhoh/r4sOIGtmmTo3zkd/MfgS4ABAG+sh5ILSHqlAAAAAElFTkSuQmCC\") no-repeat center center;\n      width: 44px;\n      height: 44px;\n      margin-left: -10px; }\n  .Jui-header .Jui-header-right {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-align: right;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .Jui-header .Jui-header-title {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    text-align: center;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .Jui-header.Jui-header-fixed {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 10;\n    width: 100%; }\n", ""]);
+	exports.push([module.id, ".Jui-header {\n  padding: 0 10px;\n  background-color: #419EFE;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 16px;\n  color: #fff;\n  height: 44px;\n  line-height: 44px;\n  box-sizing: border-box;\n  -webkit-box-sizing: border-box; }\n  .Jui-header .Jui-header-left {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-align: left;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex; }\n    .Jui-header .Jui-header-left .Jui-arrow-left {\n      position: relative;\n      width: 44px;\n      margin-left: -10px; }\n      .Jui-header .Jui-header-left .Jui-arrow-left:before, .Jui-header .Jui-header-left .Jui-arrow-left:after {\n        content: ' ';\n        width: 3px;\n        height: 14px;\n        background-color: #fff;\n        position: absolute;\n        top: 11px;\n        left: 18px;\n        -webkit-transform: rotateZ(45deg);\n                transform: rotateZ(45deg); }\n      .Jui-header .Jui-header-left .Jui-arrow-left:after {\n        top: 19px;\n        -webkit-transform: rotateZ(-45deg);\n                transform: rotateZ(-45deg); }\n  .Jui-header .Jui-header-right {\n    -webkit-box-flex: 1;\n        -ms-flex: 1;\n            flex: 1;\n    text-align: right;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n  .Jui-header .Jui-header-title {\n    -webkit-box-flex: 2;\n        -ms-flex: 2;\n            flex: 2;\n    text-align: center;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis; }\n  .Jui-header.Jui-header-fixed {\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 10;\n    width: 100%; }\n", ""]);
 
 	// exports
 
@@ -4715,10 +4715,23 @@
 	// 			text-align: left;
 	// 			display: flex;
 	// 			.Jui-arrow-left{
-	// 				background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAYAAAD+MdrbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDOUU5NTdBMTY4NDYxMUU2QjlBN0IzMDUxQzE0MzlCQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDOUU5NTdBMjY4NDYxMUU2QjlBN0IzMDUxQzE0MzlCQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkM5RTk1NzlGNjg0NjExRTZCOUE3QjMwNTFDMTQzOUJDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkM5RTk1N0EwNjg0NjExRTZCOUE3QjMwNTFDMTQzOUJDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+LCOx1wAAAP5JREFUeNrs1j0OAUEYxnGrITpBsXEAGyegQ0lBKH30buMKKgcgCjqJ1h1EQoRNfHQU45HsG5PNmv3I25CZ5Fft5J/d2Z3JGkKIGOeIx5iHDurgrwULkOEKlmABYzCVM9972UcFduIzRqr5frEa7KXYBqyowTqcpdga8n5P9O1CE2wptgIzwPJ4BttwkWJLyAaJeQW7cJdic0gHjbmDfVdsFjZGwQQM4eGEnjCBVNgYBYtwk+7sCLkoMQomue+QDFxrOI26hrIe51smHbhyfYekxblTSINzL8unzYHrtCFVzvOQlGHrbEflWhoh/r4sOIGtmmTo3zkd/MfgS4ABAG+sh5ILSHqlAAAAAElFTkSuQmCC") no-repeat center center;
-	// 			    width:44px;
-	// 			    height:44px;
-	// 			    margin-left:-10px;
+	// 				position:relative;
+	// 				width:44px;
+	// 				margin-left:-10px;
+	// 				&:before,&:after{
+	// 					content:'\20';
+	// 					width: 3px;
+	// 					height:14px;
+	// 					background-color:#fff;
+	// 					position:absolute;
+	// 					top:11px;
+	// 					left:18px;
+	// 					transform: rotateZ(45deg);
+	// 				};
+	// 				&:after{
+	// 					top:19px;
+	// 					transform: rotateZ(-45deg);
+	// 				}
 	// 			}
 	// 		}
 	// 		.Jui-header-right{
@@ -4788,7 +4801,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-fac2aae0/checklist.vue"
+	  var id = "_v-4b9fa1d1/checklist.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4950,7 +4963,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "_v-51c03365/radio.vue"
+	  var id = "_v-8ece19b4/radio.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {

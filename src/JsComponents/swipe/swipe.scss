@@ -3,9 +3,9 @@
 	overflow:hidden;
 	position: relative;
 	.swipe-wrapper{
-	display: -webkit-box;
-	display: -webkit-flex;
 	display: flex;
+	display: -webkit-flex;
+	display: -webkit-box;
 	transform: translate3d(0px, 0px, 0px);
 	-webkit-transform: translate3d(0px, 0px, 0px);
 	&.duration{
@@ -14,6 +14,8 @@
 		a{
 			flex:1;
 			-webkit-flex:1;
+   			box-flex: 1;
+   			-webkit-box-flex: 1;
 			display: block;
 			img{
 				display: block;

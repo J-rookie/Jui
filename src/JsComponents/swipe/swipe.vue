@@ -1,6 +1,6 @@
 <template>
 	<div class="Jui-swipe-container" v-el:juiswipe>
-		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart="_start($event)">
+		<nav class="swipe-wrapper" :class="{duration:animation}" :style="{width:sWipeStyleW,transform:sWipeTransform}" v-on:touchstart.prevent="_start($event)">
 			<a class="swipe-slide" v-for="item in swipeitem" :href="item.link">
 			<img :src="item.image"></a>
 		</nav>
