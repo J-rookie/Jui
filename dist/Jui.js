@@ -3321,7 +3321,7 @@
 	});
 	// <template>
 	// 	<nav :class="{'Jui-grids':true,'Jui-grids-nb':!border}">
-	// 		<a class="Jui-grid" v-for="item in options" :style="{width:gridcols}" :href="item.link" @click="succes($index)">
+	// 		<a class="Jui-grid" v-for="item in options" :style="{width:gridcols}" :href="item.links" @click="succes($index)">
 	// 			<div class="Jui-grid-img" v-if="item.image">
 	// 				<img :src="item.image">
 	// 			</div>
@@ -3445,7 +3445,7 @@
 /* 112 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<nav :class=\"{'Jui-grids':true,'Jui-grids-nb':!border}\">\n\t<a class=\"Jui-grid\" v-for=\"item in options\" :style=\"{width:gridcols}\" :href=\"item.link\" @click=\"succes($index)\">\n\t\t<div class=\"Jui-grid-img\" v-if=\"item.image\">\n\t\t\t<img :src=\"item.image\">\n\t\t</div>\n\t\t<div class=\"Jui-grid-title\">{{item.title||item}}</div>\n\t</a>\n</nav>\n";
+	module.exports = "\n<nav :class=\"{'Jui-grids':true,'Jui-grids-nb':!border}\">\n\t<a class=\"Jui-grid\" v-for=\"item in options\" :style=\"{width:gridcols}\" :href=\"item.links\" @click=\"succes($index)\">\n\t\t<div class=\"Jui-grid-img\" v-if=\"item.image\">\n\t\t\t<img :src=\"item.image\">\n\t\t</div>\n\t\t<div class=\"Jui-grid-title\">{{item.title||item}}</div>\n\t</a>\n</nav>\n";
 
 /***/ },
 /* 113 */

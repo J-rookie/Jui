@@ -1,6 +1,6 @@
 <template>
 	<nav :class="{'Jui-grids':true,'Jui-grids-nb':!border}">
-		<a class="Jui-grid" v-for="item in options" :style="{width:gridcols}" :href="item.link" @click="succes($index)">
+		<a class="Jui-grid" v-for="item in options" :style="{width:gridcols}" :href="item.links" @click="succes($index)">
 			<div class="Jui-grid-img" v-if="item.image">
 				<img :src="item.image">
 			</div>
