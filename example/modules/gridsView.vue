@@ -8,7 +8,7 @@
 
     <div class="page-grids-box">
     <div class="page-grids-title">等分网格无边框</div>
-        <jui-grids :options="options1" :cols="2"></jui-grids>
+        <jui-grids :options="options1" :cols="3"></jui-grids>
     </div>
 
     <div class="page-grids-box">
