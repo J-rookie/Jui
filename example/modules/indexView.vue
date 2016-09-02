@@ -2,8 +2,10 @@
 <template>
       <div class="page-home">
       <div class="page-home-header">
-        <img src="../temp/images/logo.png">
-        <div class="page-home-title">Vue常用组件&nbsp; V1.0.0</div>
+        <div class="page-home-title">
+          Vue移动端常用组件&nbsp;V1.0.0
+          <span class="notes">(请在mobile查看,部分功能不支持PC)</span>
+        </div>
       </div> 
       <jui-grids :options="options" :cols="3" border></jui-grids>
       </div>
@@ -14,21 +16,38 @@
   height: 100%;
   overflow: auto;
   .page-home-header{
-    background-color: #419EFE;
+    position: relative;
     margin-bottom:20px;
-    img{
-      display: block;
-      margin: auto;
-      width: 66%;
-    }
+    background:url(../temp/images/logo.png) no-repeat top center  #419EFE;
+    background-size: auto 90%;
+    padding-bottom:80%;
     .page-home-title{
       text-align: center;
       color: #fff;
-      line-height: 40px;
+      position: absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      font-size:14px;
+      line-height:40px;
+      .notes{
+          display: none;
+      }
     }
   }
 }
-
+@media screen and (min-width:640px){
+  .page-home{
+      .page-home-header{
+           padding-bottom:20%;
+            .page-home-title{
+                .notes{
+                display: inline;
+                }
+            }
+        }
+  }
+}
 </style>
 <script>
     //es6

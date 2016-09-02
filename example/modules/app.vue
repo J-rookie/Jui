@@ -13,5 +13,4 @@ button,input,textarea{
 	-webkit-appearance: none;
 	background:none;
 	}
-	
 </style>
