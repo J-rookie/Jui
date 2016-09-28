@@ -1,7 +1,7 @@
 <template>
 	<div class="Jui-switch">
 		<input type="checkbox" class="Jui-switch-core" v-model="value">
-        <label class="mint-switch-label">
+        <label>
             <slot></slot>
         </label>
 	</div>
