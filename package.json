@@ -36,5 +36,11 @@
     "vue-style-loader": "^1.0.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "babel": "^6.5.2",
+    "babel-runtime": "^6.11.6",
+    "vue-hot-reload-api": "^2.0.6",
+    "vue-loader": "^8.5.4"
   }
 }

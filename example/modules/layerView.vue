@@ -51,7 +51,7 @@
               });
               break;
               case 2:
-              this.$layer.loading(1,2000);
+              this.$layer.loading(1);
               break;
               case 3:
               this.$layer.confirm("这是一个美丽的弹窗<br>你觉得呢？",function(){
