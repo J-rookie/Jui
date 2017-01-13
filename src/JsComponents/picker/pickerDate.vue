@@ -1,5 +1,5 @@
 <template>
-	<picker :data.sync="datetime.slot" :default="datetime.default" :response.sync="datetime.response" :style-class="styleClass"></picker>
+	<picker :data.sync="datetime.slot" :default.sync="datetime.default" :response.sync="datetime.response" :style-class="styleClass"></picker>
 </template>
 
 <script type="text/javascript">

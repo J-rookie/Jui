@@ -79,17 +79,19 @@
 				display: inline-table;
 				border-radius: 4px;
 				pointer-events: auto;
+				overflow:hidden;
 				p{
 					border-bottom:1px solid #cccccc;
 					display: block;
 					padding:10px;
 				}
-				button{
+				.jui-submit{
 					display: block;
 					text-align:center;
 					width:100%;
 					padding:5px 0;
 					color: #38a8d7;
+					background-color:#fff;
 				}
 			}
 		}

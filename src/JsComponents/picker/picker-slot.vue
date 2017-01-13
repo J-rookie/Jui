@@ -1,5 +1,5 @@
 <template>
-	<div class="Jui-picker-slot" v-on:touchstart="_start($event)">
+	<div class="Jui-picker-slot" v-on:touchstart.prevent="_start($event)">
 	<nav class="Jui-picker-options" :class="{duration:animation}" v-bind:style="{transform : sTransformY}">
 		<a v-for="item in data.values" v-bind:class="{selected:selected==$index}">{{item}}</a>
 	</nav>

@@ -1,5 +1,5 @@
 <template>
-	<picker :data.sync="citytable.slot" :default="citytable.default" :response.sync="citytable.response" :success="citytable.success" :style-class="styleClass"></picker>
+	<picker :data.sync="citytable.slot" :default.sync="citytable.default" :response.sync="citytable.response" :success="citytable.success" :style-class="styleClass"></picker>
 </template>
 
 <script type="text/javascript">

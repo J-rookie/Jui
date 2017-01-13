@@ -13,7 +13,7 @@
 			<div class="jui-layer-alert"  v-if="type == 1">
 				<div class="layer-alert-con">
 					<p>{{message}}</p>
-					<button @click="yesFn">确认</button>
+					<button class="jui-submit" @click="yesFn">确认</button>
 				</div>
 			</div>
 
